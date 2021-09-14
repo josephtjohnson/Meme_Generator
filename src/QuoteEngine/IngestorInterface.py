@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
-from typing import list
+from typing import List
 
-class IngestorInterface(ABC):
+class Ingestor(ABC):
     file_types = []
 
     @classmethod
