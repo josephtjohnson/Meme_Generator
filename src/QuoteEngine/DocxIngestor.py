@@ -4,7 +4,7 @@ from .IngestorInterface import Ingestor
 from .QuoteModel import QuoteModel
 
 class DocxIngestor(IngestorInterface):
-    file_types = []
+    file_types = ['docx']
 
     @classmethod
     def parse(cls, path: str) -> List[QuoteModel]:
