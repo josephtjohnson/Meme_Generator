@@ -20,3 +20,5 @@ class DocxIngestor(IngestorInterface):
                 parse = para.text.split('-')
                 new_quote = QuoteModel(path, str(parse[0]), str(parse[1])
                 quotes.append(new_quote)
+                                       
+        return quotes
