@@ -1,9 +1,11 @@
+sys.path.append('./QuoteEngine')
+sys.path.append('./MemeGenerator')
 import os
+import sys
 import random
 import argparse
-
-# @TODO Import your Ingestor and MemeEngine classes
-
+import Ingestor
+import MemeEngine
 
 def generate_meme(path=None, body=None, author=None):
     """ Generate a meme given an path and a quote """
