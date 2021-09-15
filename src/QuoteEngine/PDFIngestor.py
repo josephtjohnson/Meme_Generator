@@ -2,8 +2,9 @@ import subprocess
 import os
 import random
 from typing import List
-from .IngestorInterface import Ingestor
+from .IngestorInterface import IngestorInterface
 from .QuoteModel import QuoteModel
+
 
 class PDFIngestor(IngestorInterface):
     file_types = ['pdf']
@@ -11,13 +12,15 @@ class PDFIngestor(IngestorInterface):
     @classmethod
     def line_parse(cls, path: str) -> List[QuoteModel]:
         if not cls.can_ingest(path):
-            return Exception(f'Cannot ingest this file type. Please ensure \
-            file extension is {file_types}')
+            raise Exception('Cannot ingest this file type. {path}')
 
         tmp = f'./tmp{random.randint(1,1000)}.txt'
-        call = subprocess.call(['pdftotext', path, tmp])
-        file = open(tmp, 'r') if tmp is not "" else raise Exception('file \
-        empty')
+        subprocess.call(['pdftotext', path, tmp])
+
+        if tmp is not None:
+            file = open(tmp, 'r')
+        else:
+            raise Exception('file empty')
 
         lines = []
         for line in file.readlines():
@@ -29,12 +32,11 @@ class PDFIngestor(IngestorInterface):
         return lines
 
     @staticmethod
-    def parse(lines):
+    def parse(path, lines):
         quotes = []
         for line in lines:
             if len(line) > 0:
                 parsed = line.split(',')
-                new_quote = QuoteModel(path, str(parsed[0]), str(parsed[1])
+                new_quote = QuoteModel(path, str(parsed[0]), str(parsed[1]))
                 quotes.append(new_quote)
-
         return quotes

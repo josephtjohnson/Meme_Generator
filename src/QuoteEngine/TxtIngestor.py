@@ -1,7 +1,8 @@
 import pandas as pd
 from typing import List
-from .IngestorInterface import Ingestor
+from .IngestorInterface import IngestorInterface
 from .QuoteModel import QuoteModel
+
 
 class TxtIngestor(IngestorInterface):
     file_types = ['txt']
@@ -9,8 +10,7 @@ class TxtIngestor(IngestorInterface):
     @classmethod
     def parse(cls, path: str) -> List[QuoteModel]:
         if not cls.can_ingest(path):
-            return Exception(f'Cannot ingest this file type. Please ensure \
-            file extension is {file_types}')
+            raise Exception('Cannot ingest this file type. {path}')
 
         quotes = []
         csv = pd.read_csv(path, header=None, names=['body', 'author'])
