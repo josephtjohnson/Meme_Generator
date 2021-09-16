@@ -1,11 +1,12 @@
+from QuoteEngine import QuoteModel, Ingestor
+from MemeGenerator import MemeGenerator
+import argparse
+import random
+import sys
+import os
 sys.path.append('./QuoteEngine')
 sys.path.append('./MemeGenerator')
-import os
-import sys
-import random
-import argparse
-import Ingestor
-import MemeEngine
+
 
 def generate_meme(path=None, body=None, author=None):
     """ Generate a meme given an path and a quote """
@@ -37,7 +38,7 @@ def generate_meme(path=None, body=None, author=None):
             raise Exception('Author Required if Body is Used')
         quote = QuoteModel(body, author)
 
-    meme = MemeEngine('./tmp')
+    meme = MemeGenerator('./tmp')
     path = meme.make_meme(img, quote.body, quote.author)
     return path
 

@@ -2,11 +2,11 @@ import subprocess
 import os
 import random
 from typing import List
-from .IngestorInterface import IngestorInterface
+from .IngestorInterface import Ingestor
 from .QuoteModel import QuoteModel
 
 
-class PDFIngestor(IngestorInterface):
+class PDFIngestor(Ingestor):
     file_types = ['pdf']
 
     @classmethod

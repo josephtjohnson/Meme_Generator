@@ -2,12 +2,12 @@ from .DocxIngestor import DocxIngestor
 from .CSVIngestor import CSVIngestor
 from .TxtIngestor import TxtIngestor
 from .PDFIngestor import PDFIngestor
-from .IngestorInterface import IngestorInterface
+from .IngestorInterface import Ingestor
 from .QuoteModel import QuoteModel
 from typing import List
 
 
-class Ingestor(IngestorInterface):
+class Ingestor(Ingestor):
     ingestors = ['DocxIngestor', 'CSVIngestor', 'TxtIngestor', 'PDFIngestor']
 
     @classmethod

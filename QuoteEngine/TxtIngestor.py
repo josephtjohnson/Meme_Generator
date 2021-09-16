@@ -1,10 +1,10 @@
 import pandas as pd
 from typing import List
-from .IngestorInterface import IngestorInterface
+from .IngestorInterface import Ingestor
 from .QuoteModel import QuoteModel
 
 
-class TxtIngestor(IngestorInterface):
+class TxtIngestor(Ingestor):
     file_types = ['txt']
 
     @classmethod

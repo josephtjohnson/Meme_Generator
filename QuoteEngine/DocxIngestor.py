@@ -1,10 +1,10 @@
 import docx
 from typing import List
-from .IngestorInterface import IngestorInterface
+from .IngestorInterface import Ingestor
 from .QuoteModel import QuoteModel
 
 
-class DocxIngestor(IngestorInterface):
+class DocxIngestor(Ingestor):
     file_types = ['docx']
 
     @classmethod
