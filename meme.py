@@ -45,8 +45,8 @@ def generate_meme(path=None, body=None, author=None):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Generate a meme!')
-    parser.add_argument('--body', type=str, help='Insert quote text')
-    parser.add_argument('--author', type=str, help='Insert author name')
-    parser.add_argument('--path', help='Insert file path to image')
+    parser.add_argument('--path', type=str, required=False, default=None, help='Insert path to image file')
+    parser.add_argument('--body', type=str, required=False, default=None, help='Insert quote text')
+    parser.add_argument('--author', type=str, required=False, default=None, help='Insert author name')
     args = parser.parse_args()
     print(generate_meme(args.path, args.body, args.author))
