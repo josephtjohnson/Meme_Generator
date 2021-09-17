@@ -1,11 +1,8 @@
-from QuoteEngine import QuoteModel, Ingestor
-from MemeGenerator import MemeGenerator
+from Ingestors import Ingestor
+from QuoteEngine import MemeEngine, QuoteModel
 import argparse
 import random
-import sys
 import os
-sys.path.append('./QuoteEngine')
-sys.path.append('./MemeGenerator')
 
 
 def generate_meme(path=None, body=None, author=None):
