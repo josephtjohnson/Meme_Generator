@@ -33,8 +33,8 @@ def setup():
     # images within the images images_path directory
     imgs = []
     for (dirpath, dirnames, filenames) in walk(images_path):
-                  imgs.extend(filenames)
-                  break
+        imgs.extend(filenames)
+        break
 
     return quotes, imgs
 
