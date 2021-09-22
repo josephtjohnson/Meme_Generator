@@ -15,3 +15,5 @@ class Ingestor(Ingestor):
         for ingestor in cls.ingestors:
             if ingestor.can_ingest(path):
                 return ingestor.parse(path)
+            else:
+                return print('File type not supported.')
