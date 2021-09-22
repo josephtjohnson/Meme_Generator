@@ -6,8 +6,8 @@ class MemeGenerator():
     def __init__(self, output):
         self.output = output
         if output is not None:
-            if not os.path.exists(output):
-                os.mkdir(output)
+            if not os.path.exists(self.output):
+                os.mkdir(self.output)
         else:
             raise Exception('Must provide file save location.')
 
