@@ -2,7 +2,7 @@ import os
 from PIL import Image, ImageFont, ImageDraw
 
 
-class MemeGenerator():
+class MemeEngine():
     def __init__(self, output):
         self.output = output
         if output is not None:
