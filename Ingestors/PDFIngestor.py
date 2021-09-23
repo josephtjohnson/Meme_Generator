@@ -3,7 +3,7 @@ import os
 import random
 from typing import List
 from .IngestorInterface import Ingestor
-from .QuoteModel import QuoteModel
+from QuoteEngine import QuoteModel
 
 
 class PDFIngestor(Ingestor):
