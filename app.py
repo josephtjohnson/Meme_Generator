@@ -20,17 +20,13 @@ def setup():
 
     quotes = []
     for quote in quote_files:
-        try:
-            quotes.extend(Ingestor.parse(quote))
-        except ValueError as error:
-            print(f'ValueError: {error}")
+        quotes.extend(Ingestor.parse(quote))
 
     images_path = "./_data/photos/dog/"
 
     imgs = []
-    for (dirpath, dirnames, filenames) in walk(images_path):
-        imgs.extend(filenames)
-        break
+    for root, dirs, files in os.walk(images):
+        imgs = [os.path.join(root, name) for name in files]
 
     return quotes, imgs
 
@@ -63,10 +59,13 @@ def meme_post():
     img_url = request.form.get('image_url')
     body = requests.form.get('body')
     author = request.form.get('author')
-                  
-    img_content = request.get(img_url,stream=True).content
-    with open(tmp,'wb') as f:
-        f.write(img_content)
+    
+    if img_url is not None:
+        img_content = request.get(img_url,stream=True).content
+        with open(tmp,'wb') as f:
+            f.write(img_content)
+    else:
+        raise FileNotFoundError('Must provide image url')
     
     path = meme.make_meme(tmp, body, author)
     os.remove(tmp)
