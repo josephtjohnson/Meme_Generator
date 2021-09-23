@@ -12,11 +12,8 @@ class Ingestor(Ingestor):
 
     @classmethod
     def parse(cls, path: str) -> List:
-        if type(path) is str:
-            for ingestor in cls.ingestors:
-                if ingestor.can_ingest(path):
-                    return ingestor.parse(path)
-                else:
-                    return print('File type not supported.')
-        else:
-            raise TypeError('Path must be a string.')
+        for ingestor in cls.ingestors:
+            if ingestor.can_ingest(path):
+                return ingestor.parse(path)
+            else:
+                return print('File type not supported.')
