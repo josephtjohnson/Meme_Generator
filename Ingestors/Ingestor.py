@@ -12,8 +12,11 @@ class Ingestor(Ingestor):
 
     @classmethod
     def parse(cls, path: str) -> List[QuoteModel]:
-        for ingestor in cls.ingestors:
-            if ingestor.can_ingest(path):
-                return ingestor.parse(path)
-            else:
-                return print('File type not supported.')
+        if type(path) is string:
+            for ingestor in cls.ingestors:
+                if ingestor.can_ingest(path):
+                    return ingestor.parse(path)
+                else:
+                    return print('File type not supported.')
+        else:
+            raise TypeError('Path must be a string'.)
