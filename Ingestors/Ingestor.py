@@ -3,7 +3,7 @@ from .CSVIngestor import CSVIngestor
 from .TxtIngestor import TxtIngestor
 from .PDFIngestor import PDFIngestor
 from .IngestorInterface import Ingestor
-from .QuoteModel import QuoteModel
+from QuoteEngine import QuoteModel
 from typing import List
 
 
