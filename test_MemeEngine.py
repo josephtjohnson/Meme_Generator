@@ -13,3 +13,5 @@ class TestMemeEngine(unittest.TestCase):
       MemeEngine.make_meme('./_data/photos/dog/xander_1.jpg', None, None, 501)
       MemeEngine.make_meme('./_data/photos/dog/xander_1.jpg', None, None, None)
     
+if __name__ == '__main__':
+  unittest.main()
