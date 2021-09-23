@@ -1,5 +1,15 @@
 <h1>Meme Generator</h1>
 <p>Meme generator that can be utilized via web or CLI.<p>
+  
+<h2>Meme Generator Demonstration (Heroku)</h2>
+<ol>
+  <li>Run<code>python main.py</code> to generate a meme with a random image, quote, and author.</li>
+  <li>Run<code>python main.py --path {insert image url} --body {insert quote} --author {insert author}></code> to create a custom meme.</li>
+  <ul>
+    <li>Note: if --path not specified a random image will be used. Both --body and --author are required to add a unique quote.</li>
+  </ul>
+  <li>Generated meme will be located under the <code>tmp</code> folder</li>
+</ol>
 
 <h2>Using the Meme Generator (Web)</h2>
 <ol>
@@ -54,6 +64,8 @@
   <li>main.py --> <code>python -m unittest test_main.py</code></li>
 </ul>
   
+<h2>License</h2>
+<p>MIT <a href="/josephtjohnson/Meme_Generator/blob/main/LICENSE.md">License</a><p>
 
 <h2>Author</h2>
 <p>Joseph Johnson</p>
