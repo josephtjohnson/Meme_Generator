@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
 from typing import List
-from QuoteEngine import QuoteModel
+import QuoteModel
 
 
 class Ingestor(ABC):
@@ -13,5 +13,5 @@ class Ingestor(ABC):
 
     @classmethod
     @abstractmethod
-    def parse(cls, path: str) -> List[QuoteModel]:
+    def parse(cls, path: str) -> List:
         pass

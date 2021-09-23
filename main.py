@@ -1,5 +1,6 @@
-from Ingestors import Ingestor
-from QuoteEngine import MemeEngine, QuoteModel
+import Ingestor
+from MemeEngine import MemeEngine
+from QuoteModel import QuoteModel
 import argparse
 import random
 import os
@@ -15,16 +16,17 @@ def generate_meme(path=None, body=None, author=None):
             imgs = []
             for root, dirs, files in os.walk(images):
                 imgs = [os.path.join(root, name) for name in files]
+            img = random.choice(imgs)
         else:
-            img = path[0]           
+            img = path[0]
     except FileNotFoundError:
         print(f'Default image file location -- {images} -- not found.')
     else:
-        img = random.choice(imgs)
+        pass
     finally:
         print('image finally statement executed')
 
-    try:    
+    try:
         if body is None:
             quote_files = ['./_data/DogQuotes/DogQuotesTXT.txt',
                            './_data/DogQuotes/DogQuotesDOCX.docx',
@@ -38,23 +40,26 @@ def generate_meme(path=None, body=None, author=None):
         else:
             if author is None:
                 raise Exception('Author Required if Body is Used')
-            
+
     except FileNotFoundError:
         print(f'Default quote file location -- {quote_files} -- not found.')
     else:
         quote = QuoteModel(body, author)
-        meme = MemeGenerator('./tmp')
+        meme = MemeEngine('./tmp')
         path = meme.make_meme(img, quote.body, quote.author)
         return path
     finally:
         print(' body/author finally statement executed')
 
 
-
 if __name__ == "__main__":
+
     parser = argparse.ArgumentParser(description='Generate a meme!')
-    parser.add_argument('--path', type=str, required=False, default=None, help='Insert path to image file')
-    parser.add_argument('--body', type=str, required=False, default=None, help='Insert quote text')
-    parser.add_argument('--author', type=str, required=False, default=None, help='Insert author name')
+    parser.add_argument('--path', type=str, required=False,
+                        default=None, help='Insert path to image file')
+    parser.add_argument('--body', type=str, required=False, default=None,
+                        help='Insert quote text')
+    parser.add_argument('--author', type=str, required=False,
+                        default=None, help='Insert author name')
     args = parser.parse_args()
     print(generate_meme(args.path, args.body, args.author))

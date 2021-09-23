@@ -2,15 +2,15 @@ import subprocess
 import os
 import random
 from typing import List
-from .IngestorInterface import Ingestor
-from QuoteEngine import QuoteModel
+from IngestorInterface import Ingestor
+import QuoteModel
 
 
 class PDFIngestor(Ingestor):
     file_types = ['pdf']
 
     @classmethod
-    def line_parse(cls, path: str) -> List[QuoteModel]:
+    def line_parse(cls, path: str) -> List:
         if not cls.can_ingest(path):
             raise Exception('Cannot ingest this file type. {path}')
 

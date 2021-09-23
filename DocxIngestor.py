@@ -1,14 +1,14 @@
 import docx
 from typing import List
-from .IngestorInterface import Ingestor
-from QuoteEngine import QuoteModel
+from IngestorInterface import Ingestor
+import QuoteModel
 
 
 class DocxIngestor(Ingestor):
     file_types = ['docx']
 
     @classmethod
-    def parse(cls, path: str) -> List[QuoteModel]:
+    def parse(cls, path: str) -> List:
         if not cls.can_ingest(path):
             raise Exception('Cannot ingest this file type. {path}')
 
