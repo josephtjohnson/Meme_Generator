@@ -1,6 +1,6 @@
 import docx
 from typing import List
-from .IngestorInterface import IngestorInterface
+from .IngestorInterface import Ingestor
 from .QuoteModel import QuoteModel
 
 
