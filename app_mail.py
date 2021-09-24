@@ -3,8 +3,8 @@ import os
 import requests
 import mail_meme
 from flask import Flask, render_template, abort, request
-from Ingestors import Ingestor
-from QuoteEngine import MemeEngine
+from QuoteEngine import Ingestor
+from MemeGenerator import MemeEngine
 
 app = Flask(__name__)
 
