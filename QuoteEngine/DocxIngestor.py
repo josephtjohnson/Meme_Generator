@@ -1,7 +1,7 @@
 import docx
 from typing import List
-from IngestorInterface import Ingestor
-import QuoteModel
+from .IngestorInterface import IngestorInterface
+from .QuoteModel import QuoteModel
 
 
 class DocxIngestor(Ingestor):
