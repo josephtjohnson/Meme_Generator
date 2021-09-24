@@ -1,9 +1,9 @@
-from DocxIngestor import DocxIngestor
-from CSVIngestor import CSVIngestor
-from TxtIngestor import TxtIngestor
-from PDFIngestor import PDFIngestor
-from IngestorInterface import Ingestor
-import QuoteModel
+from .DocxIngestor import DocxIngestor
+from .CSVIngestor import CSVIngestor
+from .TxtIngestor import TxtIngestor
+from .PDFIngestor import PDFIngestor
+from .IngestorInterface import Ingestor
+from .QuoteModel import QuoteModel
 from typing import List
 
 
