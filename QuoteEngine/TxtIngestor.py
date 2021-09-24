@@ -1,7 +1,7 @@
 import pandas as pd
 from typing import List
-from IngestorInterface import Ingestor
-import QuoteModel
+from .IngestorInterface import IngestorInterface
+from .QuoteModel import QuoteModel
 
 
 class TxtIngestor(Ingestor):
