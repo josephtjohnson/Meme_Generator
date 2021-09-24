@@ -1,5 +1,5 @@
 import unittest
-import meme
+import main
 
 class TestMeme(unittest.TestCase):
   
