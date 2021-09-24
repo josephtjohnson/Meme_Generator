@@ -1,5 +1,5 @@
 import unittest
-from Ingestors import Ingestor
+from QuoteEngine import Ingestor
 
 class TestIngestors(unittest.TestCase):
   
