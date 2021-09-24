@@ -1,5 +1,5 @@
 import unittest
-import QuoteEngine import MemeEngine
+import memeGenerator import MemeEngine
 
 class TestMemeEngine(unittest.TestCase):
   
