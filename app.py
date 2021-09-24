@@ -2,8 +2,8 @@ import random
 import os
 import requests
 from flask import Flask, render_template, abort, request
-from Ingestors import Ingestor
-from QuoteEngine import MemeEngine
+from QuoteEngine import Ingestor
+from MemeGenerator import MemeEngine
 
 app = Flask(__name__)
 
