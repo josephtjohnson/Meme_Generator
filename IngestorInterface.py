@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
 from typing import List
-import QuoteModel
+from .QuoteModel import QuoteModel
 
 
 class Ingestor(ABC):
