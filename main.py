@@ -10,6 +10,7 @@ def generate_meme(path=None, body=None, author=None):
     """ Generate a meme given an path and a quote """
     img = None
     quote = None
+
     if path is None:
         images = "./_data/photos/dog/"
         imgs = []
@@ -24,16 +25,19 @@ def generate_meme(path=None, body=None, author=None):
                        './_data/DogQuotes/DogQuotesDOCX.docx',
                        './_data/DogQuotes/DogQuotesPDF.pdf',
                        './_data/DogQuotes/DogQuotesCSV.csv']
+
         quotes = []
 
         for f in quote_files:
-            quotes.append(Ingestor.parse(f))
+            f = Ingestor.parse(f)
+            print(f)
+            quotes.extend(f)
         quote = random.choice(quotes)
+
     else:
         if author is None:
             raise Exception('Author Required if Body is Used')
-
-    quote = QuoteModel(body, author)
+        quote = QuoteModel(body, author)
 
     meme = MemeEngine('./tmp')
     path = meme.make_meme(img, quote.body, quote.author)
@@ -47,7 +51,7 @@ if __name__ == "__main__":
                         help='Insert path to image file')
     parser.add_argument('--body', type=str, required=False, default=None,
                         help='Insert quote text')
-    parser.add_argument('--author', type=str, required=False,
-                        default=None, help='Insert author name')
+    parser.add_argument('--author', type=str, required=False, default=None,
+                        help='Insert author name')
     args = parser.parse_args()
     print(generate_meme(args.path, args.body, args.author))
