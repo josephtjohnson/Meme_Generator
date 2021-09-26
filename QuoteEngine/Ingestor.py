@@ -8,7 +8,7 @@ from typing import List
 
 
 class Ingestor(IngestorInterface):
-    ingestors = [TxtIngestor, DocxIngestor, PDFIngestor, CSVIngestor]
+    ingestors = (DocxIngestor, TxtIngestor, PDFIngestor, CSVIngestor)
 
     @classmethod
     def parse(cls, path: str) -> List[QuoteModel]:
@@ -16,4 +16,4 @@ class Ingestor(IngestorInterface):
             if ingestor.can_ingest(path):
                 return ingestor.parse(path)
             else:
-                return Exception(f'Cannot ingest {path}')
+                raise Exception(f'{path} cannot be ingested by {ingestor}')
