@@ -7,39 +7,28 @@ from .QuoteModel import QuoteModel
 
 
 class PDFIngestor(IngestorInterface):
-    file_type = ['pdf']
+    file_types = ['pdf']
 
     @classmethod
     def line_parse(cls, path: str) -> List[QuoteModel]:
-        if cls.can_ingest(path):
+        if not cls.can_ingest(path):
+            raise Exception(f'Cannot ingest {path}')
 
-            tmp = f'./tmp{random.randint(1,1000)}.txt'
-            subprocess.call(['pdftotext', path, tmp])
+        tmp = f'./tmp{random.randint(1,1000)}.txt'
+        subprocess.call(['pdftotext', path, tmp])
 
-            if tmp is not None:
-                file = open(tmp, 'r')
-            else:
-                raise Exception('file empty')
-
-            lines = []
-            for line in file.readlines():
-                line = line.strip('\n\r').strip()
-                lines.append(line)
-
-            file.close()
-            os.remove(tmp)
-            return lines
+        if tmp is not None:
+            file = open(tmp, 'r')
         else:
-            raise Exception('Cannot ingest this file type. {path}')
+            raise Exception('file empty')
 
-    @staticmethod
-    def parse(lines):
-        quotes = []
-        for line in lines:
+        lines = []
+        for line in file.readlines():
+            line = line.strip('\n\r').strip()
             if len(line) > 0:
-                print(line)
-                parsed = line.split(',')
-                print(parsed)
+                parsed = line.split('-')
                 new_quote = QuoteModel(str(parsed[0]), str(parsed[1]))
-                quotes.append(new_quote)
-        return quotes
+                lines.append(new_quote)
+        file.close()
+        os.remove(tmp)
+        return lines

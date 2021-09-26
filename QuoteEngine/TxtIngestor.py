@@ -1,24 +1,20 @@
-import pandas as pd
 from typing import List
 from .IngestorInterface import IngestorInterface
 from .QuoteModel import QuoteModel
 
 
 class TxtIngestor(IngestorInterface):
-    file_type = ['txt']
+    file_types = ['txt']
 
     @classmethod
     def parse(cls, path: str) -> List[QuoteModel]:
-        if cls.can_ingest(path):
-
-            quotes = []
-            csv = pd.read_csv(path, header=None, names=['body', 'author'])
-
-            for index, row in csv.iterrows():
-                new_quote = QuoteModel(str(row['body']),
-                                       str(row['author']))
+        if not cls.can_ingest(path):
+            raise Exception(f'Cannot ingest {path}')
+        quotes = []
+        with open(path, 'r', encoding='utf8') as f:
+            lines = f.readlines()
+            for line in lines:
+                line = line.strip().split('-')
+                new_quote = QuoteModel(line[0], line[1])
                 quotes.append(new_quote)
-
-            return quotes
-        else:
-            raise Exception('Cannot ingest this file type. {path}')
+        return quotes
