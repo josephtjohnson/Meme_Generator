@@ -4,7 +4,7 @@ from .QuoteModel import QuoteModel
 
 
 class IngestorInterface(ABC):
-    file_types = []
+    file_types = ['txt', 'docx', 'pdf', 'csv']
 
     @classmethod
     def can_ingest(cls, path: str) -> bool:
