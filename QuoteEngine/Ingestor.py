@@ -8,11 +8,19 @@ from typing import List
 
 
 class Ingestor(IngestorInterface):
-    ingestors = [DocxIngestor, TxtIngestor, PDFIngestor, CSVIngestor]
+    ingestors = {DocxIngestor, TxtIngestor, PDFIngestor, CSVIngestor]
 
     @classmethod
     def parse(cls, path: str) -> List[QuoteModel]:
-        ext = path.split('.')[-1]
-        for ingestor in cls.ingestors:
-            if ingestor.can_ingest(path):
-                return ingestor.parse(path)
+        ext = path.split('.')[-1].lower()
+        if not Ingestor.can_ingest(ext):
+            raise ValueError(f'Unsupported file type found: {ext}')
+        else:
+            if ext == 'txt':
+                return TxtIngestor.parse(path)
+            if ext == 'docx':
+                return DocxIngestor.parse(path)
+            if ext == 'pdf':
+                return PDFIngestor.parse(path)
+            if ext == 'csv':
+                return CSVIngestor.parse(path)
