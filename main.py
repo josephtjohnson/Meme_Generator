@@ -12,7 +12,10 @@ def generate_meme(path=None, body=None, author=None):
     quote = None
 
     if path is None:
-        images = "./_data/photos/dog/"
+        try:
+            images = "./_data/photos/dog/"
+        except Exception as e:
+            print(e)
         imgs = []
         for root, dirs, files in os.walk(images):
             imgs = [os.path.join(root, name) for name in files]
@@ -32,7 +35,7 @@ def generate_meme(path=None, body=None, author=None):
                 quotes.extend(Ingestor.parse(f))
             except Exception as e:
                 print(e)
-        
+      
         quote = random.choice(quotes)
 
     else:
