@@ -30,8 +30,11 @@ class MemeEngine:
             font = ImageFont.load_default()
 
             draw = ImageDraw.Draw(img)
-            draw.text((20, 20), text=text, font=font)
-            draw.text((20, 50), text=author, font=font)
+            x = random.randint(0, width-50)
+            y1 = random.randint(0, height-50)
+            y2 = random.randint(0, y1 - 30)
+            draw.text((x, y1), text=text, font=font)
+            draw.text((x, y2), text=author, font=font)
             save_dir = f'{self.output}/{random.randint(0,10000)}.{ext}'
             print(save_dir)
             img.save(save_dir)
