@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "C:\Users\Johns\Desktop\Udacity\Meme_Generator\main.py", line 54, in <module>
+    print(generate_meme(args.path, args.body, args.author))
+  File "C:\Users\Johns\Desktop\Udacity\Meme_Generator\main.py", line 31, in generate_meme
+    quotes.extend(Ingestor.parse(f))
+  File "C:\Users\Johns\Desktop\Udacity\Meme_Generator\QuoteEngine\Ingestor.py", line 19, in parse
+    raise Exception(f'{path} cannot be ingested by {ingestor}')
+Exception: ./_data/DogQuotes/DogQuotesTXT.txt cannot be ingested by <class 'QuoteEngine.DocxIngestor.DocxIngestor'>
