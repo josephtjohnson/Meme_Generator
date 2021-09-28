@@ -28,7 +28,11 @@ def generate_meme(path=None, body=None, author=None):
 
         quotes = []
         for f in quote_files:
-            quotes.extend(Ingestor.parse(f))
+            try:
+                quotes.extend(Ingestor.parse(f))
+            except Exception as e:
+                print(e)
+        
         quote = random.choice(quotes)
 
     else:
