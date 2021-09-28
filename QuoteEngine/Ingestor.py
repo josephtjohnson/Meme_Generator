@@ -15,13 +15,6 @@ class Ingestor(IngestorInterface):
         ext = path.split('.')[-1]
         for ingestor in cls.ingestors:
             if ingestor.can_ingest(path):
-                if ext = 'docx':
-                    return ingestors[0].parse(path)
-                elif ext = 'txt':
-                    return ingestors[1].parse(path)
-                elif ext = 'pdf':
-                    return ingestors[2].parse(path)
-                elif ext = 'csv':
-                    return ingestors[3].parse(path) 
-            else:
-                raise Exception(f'Unsupported file type: {ext}')
+                return ingestor.parse(path)
+        else:
+            raise Exception(f'Unsupported file type: {ext}')
