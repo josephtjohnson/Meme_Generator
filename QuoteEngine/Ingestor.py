@@ -16,5 +16,3 @@ class Ingestor(IngestorInterface):
         for ingestor in cls.ingestors:
             if ingestor.can_ingest(path):
                 return ingestor.parse(path)
-        else:
-            raise Exception(f'Unsupported file type: {ext}')
