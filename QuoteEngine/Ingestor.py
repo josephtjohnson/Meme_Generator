@@ -8,7 +8,7 @@ from typing import List
 
 
 class Ingestor(IngestorInterface):
-    ingestors = {DocxIngestor, TxtIngestor, PDFIngestor, CSVIngestor]
+    ingestors = [DocxIngestor, TxtIngestor, PDFIngestor, CSVIngestor]
 
     @classmethod
     def parse(cls, path: str) -> List[QuoteModel]:

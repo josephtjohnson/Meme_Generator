@@ -3,17 +3,19 @@ from MemeGenerator import MemeEngine
 import argparse
 import random
 import os
-import PIL
 
 
-def generate_meme(path=None, body=None, author=None):
+def generate_meme(path=None, body=None, author=None, category=None):
     """ Generate a meme given an path and a quote """
     img = None
     quote = None
 
     if path is None:
         try:
-            images = "./_data/photos/dog/"
+            if category == 'dog':
+                images = "./_data/photos/dog/"
+            else:
+                images = "./_data/photos/book/"
         except Exception as e:
             print(e)
         imgs = []
@@ -24,10 +26,13 @@ def generate_meme(path=None, body=None, author=None):
         img = path
 
     if body is None:
-        quote_files = ['./_data/DogQuotes/DogQuotesTXT.txt',
-                       './_data/DogQuotes/DogQuotesDOCX.docx',
-                       './_data/DogQuotes/DogQuotesPDF.pdf',
-                       './_data/DogQuotes/DogQuotesCSV.csv']
+        if category == 'dog':
+            quote_files = ['./_data/DogQuotes/DogQuotesTXT.txt',
+                           './_data/DogQuotes/DogQuotesDOCX.docx',
+                           './_data/DogQuotes/DogQuotesPDF.pdf',
+                           './_data/DogQuotes/DogQuotesCSV.csv']
+        else:
+            quote_files = ['./_data/BookQuotes/BookQuotesDOCX.docx']
 
         quotes = []
         for f in quote_files:
@@ -35,7 +40,6 @@ def generate_meme(path=None, body=None, author=None):
                 quotes.extend(Ingestor.parse(f))
             except Exception as e:
                 print(e)
-      
         quote = random.choice(quotes)
 
     else:
@@ -45,6 +49,7 @@ def generate_meme(path=None, body=None, author=None):
 
     meme = MemeEngine('./tmp')
     path = meme.make_meme(img, quote.body, quote.author)
+    print('Meme generated! File location:')
     return path
 
 
@@ -57,5 +62,7 @@ if __name__ == "__main__":
                         help='Insert quote text')
     parser.add_argument('--author', type=str, required=False, default=None,
                         help='Insert author name')
+    parser.add_argument('--category', type=str, required=False, default='dog',
+                        help='Insert category name: book, dog')
     args = parser.parse_args()
-    print(generate_meme(args.path, args.body, args.author))
+    print(generate_meme(args.path, args.body, args.author, args.category))

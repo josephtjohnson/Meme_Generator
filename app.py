@@ -1,7 +1,7 @@
 import random
 import os
 import requests
-from flask import Flask, render_template, abort, request
+from flask import Flask, render_template, request
 from QuoteEngine import Ingestor
 from MemeGenerator import MemeEngine
 
@@ -22,7 +22,7 @@ def setup():
     for quote in quote_files:
         quotes.extend(Ingestor.parse(quote))
 
-    images_path = "./_data/photos/dog/"
+    images = "./_data/photos/dog/"
 
     imgs = []
     for root, dirs, files in os.walk(images):
@@ -55,21 +55,21 @@ def meme_post():
     """ Create a user defined meme """
 
     tmp = f'./static/{random.randint(0, 1000000)}.jpg'
-                  
-    img_url = request.form.get('image_url')
-    body = requests.form.get('body')
+
+    img_url = request.args.get('image_url')
+    body = request.form.get('body')
     author = request.form.get('author')
-    
+
     if img_url is not None:
-        img_content = request.get(img_url,stream=True).content
-        with open(tmp,'wb') as f:
+        img_content = request.get(img_url, stream=True).content
+        with open(tmp, 'wb') as f:
             f.write(img_content)
     else:
         raise FileNotFoundError('Must provide image url')
-    
+
     path = meme.make_meme(tmp, body, author)
     os.remove(tmp)
-                  
+
     return render_template('meme.html', path=path)
 
 

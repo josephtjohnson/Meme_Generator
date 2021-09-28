@@ -13,10 +13,7 @@ class CSVIngestor(IngestorInterface):
             raise Exception(f'Cannot ingest {path}')
         quotes = []
         csv = pd.read_csv(path, header=0, names=['body', 'author'])
-        print(csv)
-        for index, row in csv.iterrows:
-            new_quote = QuoteModel(str(row['body']),
-                                   str(row['author']))
+        for index, row in csv.iterrows():
+            new_quote = QuoteModel(row['body'], row['author'])
             quotes.append(new_quote)
-
         return quotes

@@ -16,7 +16,6 @@ class MemeEngine:
     def make_meme(self, img_path, text, author, width=500) -> str:
         with Image.open(img_path) as img:
             ext = img_path.split('.')[-1]
-            print(text, author)
             if width is not None and width <= 500:
                 ratio = width/float(img.size[0])
                 height = int(ratio*img.size[1])
@@ -27,16 +26,12 @@ class MemeEngine:
                 else:
                     raise Exception('Width cannot be >500')
 
-            font = ImageFont.load_default()
-
+            font = ImageFont.truetype('fonts/Courgette-Regular.ttf', 25)
+            fill = (0, 0, 0)
             draw = ImageDraw.Draw(img)
-            x = random.randint(0, width-50)
-            y1 = random.randint(0, height-50)
-            y2 = random.randint(0, y1 - 30)
-            draw.text((x, y1), text=text, font=font)
-            draw.text((x, y2), text=author, font=font)
+            draw.text((25, 20), text=text, fill=fill, font=font)
+            draw.text((25, 50), text='-'+author, fill=fill, font=font)
             save_dir = f'{self.output}/{random.randint(0,10000)}.{ext}'
-            print(save_dir)
             img.save(save_dir)
             return save_dir
 
