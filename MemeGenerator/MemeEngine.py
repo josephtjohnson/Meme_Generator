@@ -112,8 +112,8 @@ class MemeEngine:
                                 raise Exception('Width >500')
                     except Exception as e:
                         logger.exception(f'Width must be <500 but greater than zero: {e}')
-                except Exception as e:
-                    logger.exception(e)
+             except Exception as e:
+                logger.exception(e)
               
             try:
                 img = image_resize(img_path, width)
