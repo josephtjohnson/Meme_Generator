@@ -33,7 +33,7 @@ def generate_meme(path=None, body=None, author=None, category=None):
             else:
                 images = "./_data/photos/book/"
         except ValueError:
-            logger.error('Default photo files not found')
+            logger.exception('Default photo files not found')
         imgs = []
         for root, dirs, files in os.walk(images):
             imgs = [os.path.join(root, name) for name in files]
@@ -51,14 +51,14 @@ def generate_meme(path=None, body=None, author=None, category=None):
             else:
                 quote_files = ['./_data/BookQuotes/BookQuotesDOCX.docx']
         except ValueError:
-            logger.error('Default quote files not found')
+            logger.exception('Default quote files not found')
 
         quotes = []
         for f in quote_files:
             try:
                 quotes.extend(Ingestor.parse(f))
             except Exception:
-                logger.error('Default quote files not found')
+                logger.exception('Default quote files not found')
         
         quote = random.choice(quotes)
 
@@ -66,7 +66,7 @@ def generate_meme(path=None, body=None, author=None, category=None):
         try:
             if author is None:
         except:
-            logger.error('Author Required if Body is Used')
+            logger.exception('Author Required if Body is Used')
                 
         quote = QuoteModel(body, author)
 
@@ -91,4 +91,4 @@ if __name__ == "__main__":
         args = parser.parse_args()
         print(generate_meme(args.path, args.body, args.author, args.category))
     except SystemExit:
-        logger.error('Unable to parse arguements')
+        logger.exception('Unable to parse arguements')
