@@ -21,7 +21,38 @@ logger.addHandler(stream_handler)
 
 
 class MemeEngine:
+    """
+    A class to represent a meme.
+    ...
+    Attributes
+    ----------
+    output : str
+        file save location
+    img_path : str
+        image file path
+    text : str
+        quote text
+    author : str
+        quote author
+    width : int
+        width of image in pixels (default = 500)
+        
+    Methods
+    -------
+    make_meme(img_path, text, author, width=500):
+        Receives the image path, quote, and author and returns the file save location of the generated meme.
+    """
+    
     def __init__(self, output):
+        """
+        Constructs attribute for save location object.
+        
+        Parameters
+        ----------
+            output : str
+                file save location
+        """                
+        
         self.output = output
         try:
             if output is not None:
@@ -34,6 +65,20 @@ class MemeEngine:
             logger.exception('File save location cannot be None')
 
     def make_meme(self, img_path, text, author, width=500) -> str:
+        """
+        Constructs attributes for meme and returns file save location for meme image.
+        
+        Parameters
+        ----------
+            img_path : str
+                image file path
+            text : str
+                quote text
+            author : str
+                quote author
+            width : int
+                width of image in pixels (default = 500)
+        """
         try:
             with Image.open(img_path) as img:
                 ext = img_path.split('.')[-1]
