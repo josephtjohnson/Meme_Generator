@@ -1,5 +1,6 @@
 import os
 import random
+import textwrap
 import logging
 from .ImageResize import image_resize
 from typing import List
@@ -85,8 +86,10 @@ class MemeEngine:
             font = ImageFont.truetype('fonts/Courgette-Regular.ttf', 25)
             fill = (0, 0, 0)
             draw = ImageDraw.Draw(img)
-            draw.text((25, 20), text=text, fill=fill, font=font)
-            draw.text((25, 50), text='-'+author, fill=fill, font=font)
+            x = random.randint(15,55)
+            y = random.randint(20,70)
+            draw.text((x, y), text=text, fill=fill, font=font)
+            draw.text((x, y+20), text='-'+author, fill=fill, font=font)
             save_dir = f'{self.output}/{random.randint(0,10000)}.{ext}'
             img.save(save_dir)
             return save_dir
