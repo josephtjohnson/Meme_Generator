@@ -56,12 +56,12 @@ def meme_post():
 
     tmp = f'./static/{random.randint(0, 1000000)}.jpg'
 
-    img_url = request.args.get('image_url')
+    img_url = request.form.get('image_url')
     body = request.form.get('body')
     author = request.form.get('author')
 
     if img_url is not None:
-        img_content = request.get(img_url, stream=True).content
+        img_content = requests.get(img_url, stream=True).content
         with open(tmp, 'wb') as f:
             f.write(img_content)
     else:
