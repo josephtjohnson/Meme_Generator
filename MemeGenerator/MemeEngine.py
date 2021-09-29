@@ -79,21 +79,44 @@ class MemeEngine:
             width : int
                 width of image in pixels (default = 500)
         """
-        try:
-            with Image.open(img_path) as img:
-                ext = img_path.split('.')[-1]
-                try:
-                    if width is not None and width <= 500:
-                        ratio = width/float(img.size[0])
-                        height = int(ratio*img.size[1])
-                        img = img.resize((width, height))
-                    else:
-                        if width is None:
-                            raise Exception('Width zero')
+        img_path = img_path
+        text = text
+        author = author
+        width = width
+        
+        def image_resize(self, img_path, width=500) -> str:
+            """
+            Resize an image to be used by make_meme()
+            
+            Paramters
+            ---------
+                img_path : str
+                    image file path
+                width : int
+                    width of image in pixels (default = 500)
+            """
+           
+            try:
+                with Image.open(img_path) as img:
+                    ext = img_path.split('.')[-1]
+                    try:
+                        if width is not None and width <= 500:
+                            ratio = width/float(img.size[0])
+                            height = int(ratio*img.size[1])
+                            img = img.resize((width, height))
+                            return img
                         else:
-                            raise Exception('Width >500')
+                            if width is None:
+                                raise Exception('Width zero')
+                            else:
+                                raise Exception('Width >500')
+                    except Exception as e:
+                        logger.exception(f'Width must be <500 but greater than zero: {e}')
                 except Exception as e:
-                    logger.exception(f'Width must be <500 but greater than zero: {e}')
+                    logger.exception(e)
+              
+            try:
+                img = image_resize(img_path, width)
 
                 font = ImageFont.truetype('fonts/Courgette-Regular.ttf', 25)
                 fill = (0, 0, 0)
@@ -104,5 +127,5 @@ class MemeEngine:
                 img.save(save_dir)
                 return save_dir
 
-        except ValueError:
-            logger.exception(f'{img_path} not supported')
+            except Exception as e:
+            logger.exception(f'Image unable to be resized : {e}')
