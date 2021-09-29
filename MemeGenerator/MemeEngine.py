@@ -10,7 +10,7 @@ logger.setLevel(logging.DEBUG)
 formatter = logging.Formatter('%(asctime)s:%(levelname)s:%(message)s')
 
 file_handler = logging.FileHandler('memegenerator.log')
-file_handler.setLevel(logging.WARNING)
+file_handler.setLevel(logging.ERROR)
 file_handler.setFormatter(formatter)
 
 stream_handler = logging.StreamHandler()
