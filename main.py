@@ -1,8 +1,24 @@
 from QuoteEngine import Ingestor, QuoteModel
 from MemeGenerator import MemeEngine
+import logging
 import argparse
 import random
 import os
+
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.DEBUG)
+
+formatter = logging.Formatter('%(asctime)s:%(levelname)s:%(message)s')
+
+file_handler = logging.FileHandler('main.log')
+file_handler.setLevel(logging.WARNING)
+file_handler.setFormatter(formatter)
+
+stream_handler = logging.StreamHandler()
+stream_handler.setFormatter(formatter)
+
+logger.addHandler(file_handler)
+logger.addHandler(stream_handler)
 
 
 def generate_meme(path=None, body=None, author=None, category=None):
@@ -16,8 +32,8 @@ def generate_meme(path=None, body=None, author=None, category=None):
                 images = "./_data/photos/dog/"
             else:
                 images = "./_data/photos/book/"
-        except Exception as e:
-            print(e)
+        except ValueError:
+            logger.error('Default photo files not found')
         imgs = []
         for root, dirs, files in os.walk(images):
             imgs = [os.path.join(root, name) for name in files]
@@ -26,25 +42,32 @@ def generate_meme(path=None, body=None, author=None, category=None):
         img = path
 
     if body is None:
-        if category == 'dog':
-            quote_files = ['./_data/DogQuotes/DogQuotesTXT.txt',
-                           './_data/DogQuotes/DogQuotesDOCX.docx',
-                           './_data/DogQuotes/DogQuotesPDF.pdf',
-                           './_data/DogQuotes/DogQuotesCSV.csv']
-        else:
-            quote_files = ['./_data/BookQuotes/BookQuotesDOCX.docx']
+        try:
+            if category == 'dog':
+                quote_files = ['./_data/DogQuotes/DogQuotesTXT.txt',
+                               './_data/DogQuotes/DogQuotesDOCX.docx',
+                               './_data/DogQuotes/DogQuotesPDF.pdf',
+                               './_data/DogQuotes/DogQuotesCSV.csv']
+            else:
+                quote_files = ['./_data/BookQuotes/BookQuotesDOCX.docx']
+        except ValueError:
+            logger.error('Default quote files not found')
 
         quotes = []
         for f in quote_files:
             try:
                 quotes.extend(Ingestor.parse(f))
-            except Exception as e:
-                print(e)
+            except Exception:
+                logger.error('Default quote files not found')
+        
         quote = random.choice(quotes)
 
     else:
-        if author is None:
-            raise Exception('Author Required if Body is Used')
+        try:
+            if author is None:
+        except:
+            logger.error('Author Required if Body is Used')
+                
         quote = QuoteModel(body, author)
 
     meme = MemeEngine('./tmp')
@@ -64,5 +87,8 @@ if __name__ == "__main__":
                         help='Insert author name')
     parser.add_argument('--category', type=str, required=False, default='dog',
                         help='Insert category name: book, dog')
-    args = parser.parse_args()
-    print(generate_meme(args.path, args.body, args.author, args.category))
+    try:
+        args = parser.parse_args()
+        print(generate_meme(args.path, args.body, args.author, args.category))
+    except SystemExit:
+        logger.error('Unable to parse arguements')
