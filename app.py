@@ -68,7 +68,7 @@ def meme_rand():
         logger.exception('Could not randomly select an image file')
     try: 
         path = meme.make_meme(img, quote.body, quote.author)
-    except Exception:
+    except Exception as e:
         logger.exception(e)
     return render_template('meme.html', path=path)
 
