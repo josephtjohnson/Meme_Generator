@@ -22,7 +22,21 @@ logger.addHandler(stream_handler)
 
 
 def generate_meme(path=None, body=None, author=None, category=None):
-    """ Generate a meme given an path and a quote """
+    """
+    Generates a meme given a path and a quote from default locations or user-specified CLI arguements.
+        
+    Parameters
+    ----------
+        path : str
+            image file location
+        body : str
+            quote body
+        author : str
+            quote author
+        category : str
+            meme category
+    """   
+    
     img = None
     quote = None
 
