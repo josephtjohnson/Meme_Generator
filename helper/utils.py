@@ -46,9 +46,30 @@ def open_image(category):
   except Exception:
     logger.exception('Could not open image file')
 
-  def open_quote(category):
+ def open_image_app():
   """
-  Opens an image from a user-specified category.
+  Returns images for building the meme.
+  
+  Parameters
+  ----------
+    category : str
+      image category (dog or book, default=dog)
+  """
+  try:
+    images = "./_data/photos/dog/"
+  except ValueError:
+    logger.exception('Default photo files not found')
+  try:
+    imgs = []
+    for root, dirs, files in os.walk(images):
+        imgs = [os.path.join(root, name) for name in files] 
+    return imgs
+  except Exception:
+    logger.exception('Could not open image file')   
+ 
+ def open_quote(category):
+  """
+  Opens a quote from a user-specified category.
   
   Parameters
   ----------
@@ -77,6 +98,34 @@ def open_image(category):
   except Exception as e:
     logger.exception(e)
 
+def open_quote_app():
+  """
+  Return quotes for building the meme.
+  
+  Parameters
+  ----------
+    category : str
+      image category (dog or book, default=dog)
+  """
+  
+  try:
+    quote_files = ['./_data/DogQuotes/DogQuotesTXT.txt',
+                     './_data/DogQuotes/DogQuotesDOCX.docx',
+                     './_data/DogQuotes/DogQuotesPDF.pdf',
+                     './_data/DogQuotes/DogQuotesCSV.csv']
+  except ValueError:
+      logger.exception('Default quote files not found')
+  try:
+    quotes = []
+    for f in quote_files:
+        try:
+            quotes.extend(Ingestor.parse(f))
+            return quotes
+        except Exception:
+            logger.exception('Unable to parse quote files')
+  except Exception as e:
+    logger.exception(e)
+    
 def image_resize(img_path, width=500):
     """
     Resize an image to be used by make_meme()
