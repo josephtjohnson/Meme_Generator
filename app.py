@@ -51,15 +51,15 @@ def meme_rand():
     try:
         img = random.choice(imgs)
     except ValueError:
-        logger.exception('Could not randomly select an image file')
+        logger.exception('Could not select a random image')
     try:
         quote = random.choice(quotes)
     except ValueError:
-        logger.exception('Could not randomly select an image file')
+        logger.exception('Could not select a random quote')
     try: 
         path = meme.make_meme(img, quote.body, quote.author)
     except Exception as e:
-        logger.exception(e)
+        logger.exception(f'Unable to generate meme : {e}')
     return render_template('meme.html', path=path)
 
 
@@ -92,7 +92,7 @@ def meme_post():
         with open(tmp, 'wb') as f:
             f.write(img_content)
     except Exception as e:
-        logger.exception(e)
+        logger.exception(f'Unable to open image url : {e}')
         error = "Invalid input...Verify URL correct"
         return render_template("meme_form.html",
                               error=error,
