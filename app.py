@@ -4,7 +4,7 @@ import requests
 from flask import Flask, render_template, request
 from QuoteEngine import Ingestor
 from MemeGenerator import MemeEngine
-from helper import utils
+import utils
 import logging
 
 logger - logging.getLogger(__name__)
