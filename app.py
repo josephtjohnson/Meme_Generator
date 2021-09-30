@@ -74,23 +74,31 @@ def meme_post():
     """ Create a user defined meme """
 
     tmp = f'./static/{random.randint(0, 1000000)}.jpg'
+
+    image_url = request.form.get('image_url')
+    body = request.form.get('body')
+    author = request.form.get('author')
+    
+    if not image_url or not body or not author:
+        error = "Fields Cannot Be Empty..."
+        return render_template("meme_form.html",
+                              error=error,
+                              image_url=image_url,
+                              body=body,
+                              author=author)
+
     try:
-        img_url = request.form.get('image_url')
-        body = request.form.get('body')
-        author = request.form.get('author')
+        img_content = requests.get(img_url, stream=True).content
+        with open(tmp, 'wb') as f:
+            f.write(img_content)
     except Exception as e:
         logger.exception(e)
-        
-    if img_url is not None:
-        try:
-            img_content = requests.get(img_url, stream=True).content
-            with open(tmp, 'wb') as f:
-                f.write(img_content)
-        except Exception as e:
-            logger.exception(e)
-    else:
-        raise Exception as e:
-            logger.exception(f'Must provide image url: {e}')
+        error = "Invalid input...Verify URL correct"
+        return render_template("meme_form.html",
+                              error=error,
+                              image_url=image_url,
+                              body=body,
+                              author=author)
 
     path = meme.make_meme(tmp, body, author)
     os.remove(tmp)
