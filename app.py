@@ -4,6 +4,7 @@ import requests
 from flask import Flask, render_template, request
 from QuoteEngine import Ingestor
 from MemeGenerator import MemeEngine
+from helper import utils
 import logging
 
 logger - logging.getLogger(__name__)
@@ -29,23 +30,12 @@ meme = MemeEngine('./static')
 def setup():
     """ Load all resources """
     try:
-        quote_files = ['./_data/DogQuotes/DogQuotesTXT.txt',
-                       './_data/DogQuotes/DogQuotesDOCX.docx',
-                       './_data/DogQuotes/DogQuotesPDF.pdf',
-                       './_data/DogQuotes/DogQuotesCSV.csv']
-
-        quotes = []
-        for quote in quote_files:
-            quotes.extend(Ingestor.parse(quote))
+        quotes = open_quote_app()
      except ValueError:
         logger.exception('Default quote files not found')
 
     try:
-        images = "./_data/photos/dog/"
-
-        imgs = []
-        for root, dirs, files in os.walk(images):
-            imgs = [os.path.join(root, name) for name in files]
+        imgs = open_image_app()
     except ValueError:
         logger.exception('Default image files not found')
 
