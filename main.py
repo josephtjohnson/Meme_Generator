@@ -1,6 +1,6 @@
 from QuoteEngine import Ingestor, QuoteModel
 from MemeGenerator import MemeEngine
-import utils
+from helper import utils
 import logging
 import argparse
 import random
