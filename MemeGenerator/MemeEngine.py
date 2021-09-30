@@ -1,7 +1,7 @@
 import os
 import random
 import logging
-from helper import utils
+import utils
 from .ImageResize import image_resize
 from typing import List
 from PIL import Image, ImageFont, ImageDraw
