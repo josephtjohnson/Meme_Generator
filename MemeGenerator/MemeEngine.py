@@ -1,25 +1,9 @@
 import os
 import random
-import logging
 import utils
 from .ImageResize import image_resize
 from typing import List
 from PIL import Image, ImageFont, ImageDraw
-
-logger = logging.getLogger(__name__)
-logger.setLevel(logging.DEBUG)
-
-formatter = logging.Formatter('%(asctime)s:%(levelname)s:%(message)s')
-
-file_handler = logging.FileHandler('memegenerator.log')
-file_handler.setLevel(logging.ERROR)
-file_handler.setFormatter(formatter)
-
-stream_handler = logging.StreamHandler()
-stream_handler.setFormatter(formatter)
-
-logger.addHandler(file_handler)
-logger.addHandler(stream_handler)
 
 
 class MemeEngine:
@@ -56,15 +40,9 @@ class MemeEngine:
         """                
         
         self.output = output
-        try:
-            if output is not None:
-                try:
-                    if not os.path.exists(self.output):
-                        os.mkdir(self.output)
-                except Exception:
-                    logger.exception('Could not create output directory')
-         except ValueError:
-            logger.exception('File save location cannot be None')
+        if output is not None:
+                if not os.path.exists(self.output):
+                    os.mkdir(self.output)
 
     def make_meme(self, img_path, text, author, width=500) -> str:
         """
@@ -81,17 +59,16 @@ class MemeEngine:
             width : int
                 width of image in pixels (default = 500)
         """            
-        try:
-            img = image_resize(img_path, width)
-        except Exception:
-            logger.exception('Could not resize image')
-        try:
-            font = ImageFont.truetype('fonts/Courgette-Regular.ttf', 25)
-            fill = (0, 0, 0)
-            draw = ImageDraw.Draw(img)
-            add_text = text_draw(draw, text, author, fill, font)
-        except Exception:
-            logger.exception('Could not apply text to image')
+        
+        img = image_resize(img_path, width)
+
+        font = ImageFont.truetype('fonts/Courgette-Regular.ttf', 25)
+        fill = (0, 0, 0)
+
+        draw = ImageDraw.Draw(img)
+
+        add_text = text_draw(draw, text, author, fill, font)
+
         save_dir = f'{self.output}/{random.randint(0,10000)}.{ext}'
         img.save(save_dir)
         return save_dir
