@@ -1,7 +1,7 @@
 import os
 import random
-import textwrap
 import logging
+from helper import utils
 from .ImageResize import image_resize
 from typing import List
 from PIL import Image, ImageFont, ImageDraw
@@ -83,16 +83,15 @@ class MemeEngine:
         """            
         try:
             img = image_resize(img_path, width)
+        except Exception:
+            logger.exception('Could not resize image')
+        try:
             font = ImageFont.truetype('fonts/Courgette-Regular.ttf', 25)
             fill = (0, 0, 0)
             draw = ImageDraw.Draw(img)
-            x = random.randint(15,55)
-            y = random.randint(20,70)
-            draw.text((x, y), text=text, fill=fill, font=font)
-            draw.text((x, y+20), text='-'+author, fill=fill, font=font)
-            save_dir = f'{self.output}/{random.randint(0,10000)}.{ext}'
-            img.save(save_dir)
-            return save_dir
-
-        except Exception as e:
-        logger.exception(f'Image unable to be resized : {e}')
+            add_text = text_draw(draw, text, author, fill, font)
+        except Exception:
+            logger.exception('Could not apply text to image')
+        save_dir = f'{self.output}/{random.randint(0,10000)}.{ext}'
+        img.save(save_dir)
+        return save_dir
