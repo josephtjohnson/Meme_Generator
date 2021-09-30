@@ -1,5 +1,6 @@
 from QuoteEngine import Ingestor, QuoteModel
 from MemeGenerator import MemeEngine
+import utils
 import logging
 import argparse
 import random
@@ -40,42 +41,21 @@ def generate_meme(path=None, body=None, author=None, category=None):
     img = None
     quote = None
 
+    # process image files 
     if path is None:
         try:
-            if category == 'dog':
-                images = "./_data/photos/dog/"
-            else:
-                images = "./_data/photos/book/"
-        except ValueError:
-            logger.exception('Default photo files not found')
-        imgs = []
-        for root, dirs, files in os.walk(images):
-            imgs = [os.path.join(root, name) for name in files]
-        img = random.choice(imgs)
+            img = open_image(category)
+        except Exception:
+            logger.exception('Default image files not found')
     else:
         img = path
-
+    
+    # process quote files and create QuoteModel object
     if body is None:
         try:
-            if category == 'dog':
-                quote_files = ['./_data/DogQuotes/DogQuotesTXT.txt',
-                               './_data/DogQuotes/DogQuotesDOCX.docx',
-                               './_data/DogQuotes/DogQuotesPDF.pdf',
-                               './_data/DogQuotes/DogQuotesCSV.csv']
-            else:
-                quote_files = ['./_data/BookQuotes/BookQuotesDOCX.docx']
-        except ValueError:
-            logger.exception('Default quote files not found')
-
-        quotes = []
-        for f in quote_files:
-            try:
-                quotes.extend(Ingestor.parse(f))
-            except Exception:
-                logger.exception('Default quote files not found')
-        
-        quote = random.choice(quotes)
-
+            quote = open_quote(category)
+        except Exception:
+            logger.exception('Default quote files not found')    
     else:
         try:
             if author is None:
@@ -83,7 +63,8 @@ def generate_meme(path=None, body=None, author=None, category=None):
             logger.exception('Author Required if Body is Used')
                 
         quote = QuoteModel(body, author)
-
+    
+    # create the meme
     meme = MemeEngine('./tmp')
     path = meme.make_meme(img, quote.body, quote.author)
     print('Meme generated! File location:')
