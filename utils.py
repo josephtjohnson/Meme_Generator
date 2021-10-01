@@ -16,10 +16,10 @@ def open_image(category):
       image category (dog or book, default=dog)
   """
  
+  images = "./_data/photos/book/"
+  
   if category == 'dog':
       images = "./_data/photos/dog/"
-  else:
-      images = "./_data/photos/book/"
 
   imgs = []
   for root, dirs, files in os.walk(images):
@@ -53,13 +53,13 @@ def open_quote(category):
         image category (dog or book, default=dog)
   """
   
+  quote_files = ['./_data/BookQuotes/BookQuotesDOCX.docx']
+  
   if category == 'dog':
     quote_files = ['./_data/DogQuotes/DogQuotesTXT.txt',
                      './_data/DogQuotes/DogQuotesDOCX.docx',
                      './_data/DogQuotes/DogQuotesPDF.pdf',
                      './_data/DogQuotes/DogQuotesCSV.csv']
-  else:
-      quote_files = ['./_data/BookQuotes/BookQuotesDOCX.docx']
       
   quotes = []
   for f in quote_files:
