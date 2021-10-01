@@ -31,13 +31,13 @@ def setup():
     """ Load all resources """
     try:
         quotes = open_quote_app()
-     except ValueError:
-        logger.exception('Default quote files not found')
+     except FileNotFoundError:
+        logger.error('Default quote files not found')
 
     try:
         imgs = open_image_app()
-    except ValueError:
-        logger.exception('Default image files not found')
+    except FileNotFoundError:
+        logger.error('Default image files not found')
 
     return quotes, imgs
 
