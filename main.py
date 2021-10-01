@@ -45,8 +45,8 @@ def generate_meme(path=None, body=None, author=None, category=None):
     if path is None:
         try:
             img = open_image(category)
-        except Exception:
-            logger.exception('Default image files not found')
+        except FileNotFoundError:
+            logger.error('Default image files not found')
     else:
         img = path
     
@@ -54,8 +54,8 @@ def generate_meme(path=None, body=None, author=None, category=None):
     if body is None:
         try:
             quote = open_quote(category)
-        except Exception:
-            logger.exception('Default quote files not found')    
+        except FileNotFoundError:
+            logger.error('Default quote files not found')    
     else:
         try:
             if author is None:
