@@ -4,10 +4,10 @@ import requests
 from flask import Flask, render_template, request
 from QuoteEngine import Ingestor
 from MemeGenerator import MemeEngine
-import utils
+from utils import open_quote_app, open_image_app
 import logging
 
-logger - logging.getLogger(__name__)
+logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 
 formatter = logging.Formatter('%(asctime)s:%(levelname)s:%(message)s')
@@ -31,7 +31,7 @@ def setup():
     """ Load all resources """
     try:
         quotes = open_quote_app()
-     except FileNotFoundError:
+    except FileNotFoundError:
         logger.error('Default quote files not found')
 
     try:
@@ -56,7 +56,7 @@ def meme_rand():
         quote = random.choice(quotes)
     except ValueError:
         logger.exception('Could not select a random quote')
-    try: 
+    try:
         path = meme.make_meme(img, quote.body, quote.author)
     except Exception as e:
         logger.exception(f'Unable to generate meme : {e}')
@@ -78,14 +78,14 @@ def meme_post():
     image_url = request.form.get('image_url')
     body = request.form.get('body')
     author = request.form.get('author')
-    
+
     if not image_url or not body or not author:
         error = "Fields Cannot Be Empty..."
         return render_template("meme_form.html",
-                              error=error,
-                              image_url=image_url,
-                              body=body,
-                              author=author)
+                               error=error,
+                               image_url=image_url,
+                               body=body,
+                               author=author)
 
     try:
         img_content = requests.get(img_url, stream=True).content
@@ -95,10 +95,10 @@ def meme_post():
         logger.exception(f'Unable to open image url : {e}')
         error = "Invalid input...Verify URL correct"
         return render_template("meme_form.html",
-                              error=error,
-                              image_url=image_url,
-                              body=body,
-                              author=author)
+                               error=error,
+                               image_url=image_url,
+                               body=body,
+                               author=author)
 
     path = meme.make_meme(tmp, body, author)
     os.remove(tmp)

@@ -1,0 +1,5 @@
+2021-10-02 17:21:59,411:ERROR:Unable to open image url : name 'img_url' is not defined
+Traceback (most recent call last):
+  File "C:\Users\Johns\Desktop\Udacity\Meme_Generator\app.py", line 91, in meme_post
+    img_content = requests.get(img_url, stream=True).content
+NameError: name 'img_url' is not defined
