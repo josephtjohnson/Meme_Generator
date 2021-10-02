@@ -1,6 +1,6 @@
 from QuoteEngine import Ingestor, QuoteModel
 from MemeGenerator import MemeEngine
-import utils
+from utils import open_image, open_quote
 import logging
 import argparse
 import random
@@ -24,8 +24,9 @@ logger.addHandler(stream_handler)
 
 def generate_meme(path=None, body=None, author=None, category=None):
     """
-    Generates a meme given a path and a quote from default locations or user-specified CLI arguements.
-        
+    Generates a meme given a path and a quote from default locations or
+    user-specified CLI arguements.
+
     Parameters
     ----------
         path : str
@@ -36,12 +37,12 @@ def generate_meme(path=None, body=None, author=None, category=None):
             quote author
         category : str
             meme category
-    """   
-    
+    """
+
     img = None
     quote = None
 
-    # process image files 
+    # process image files
     if path is None:
         try:
             img = open_image(category)
@@ -49,21 +50,19 @@ def generate_meme(path=None, body=None, author=None, category=None):
             logger.error('Default image files not found')
     else:
         img = path
-    
+
     # process quote files and create QuoteModel object
     if body is None:
         try:
             quote = open_quote(category)
         except FileNotFoundError:
-            logger.error('Default quote files not found')    
+            logger.error('Default quote files not found')
     else:
-        try:
-            if author is None:
-        except:
-            logger.exception('Author Required if Body is Used')
-                
+        if author is None:
+            logger.exception('Author cannot be None')
+
         quote = QuoteModel(body, author)
-    
+
     # create the meme
     meme = MemeEngine('./tmp')
     path = meme.make_meme(img, quote.body, quote.author)
