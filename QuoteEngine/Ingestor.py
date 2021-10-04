@@ -6,6 +6,7 @@ from .IngestorInterface import IngestorInterface
 from .QuoteModel import QuoteModel
 from typing import List
 
+
 class Ingestor(IngestorInterface):
     ingestors = [DocxIngestor, TxtIngestor, PDFIngestor, CSVIngestor]
 
@@ -23,4 +24,3 @@ class Ingestor(IngestorInterface):
                 return PDFIngestor.parse(path)
             if ext == 'csv':
                 return CSVIngestor.parse(path)
-

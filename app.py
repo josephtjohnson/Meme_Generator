@@ -73,7 +73,7 @@ def meme_form():
 def meme_post():
     """ Create a user defined meme """
 
-    tmp = f'./static/{random.randint(0, 1000000)}.jpg'
+    tmp = f'./static/{random.randint(0, 1000)}.jpg'
 
     image_url = request.form.get('image_url')
     body = request.form.get('body')
@@ -88,7 +88,7 @@ def meme_post():
                                author=author)
 
     try:
-        img_content = requests.get(img_url, stream=True).content
+        img_content = requests.get(image_url, stream=True).content
         with open(tmp, 'wb') as f:
             f.write(img_content)
     except Exception as e:
@@ -99,10 +99,18 @@ def meme_post():
                                image_url=image_url,
                                body=body,
                                author=author)
-
-    path = meme.make_meme(tmp, body, author)
-    os.remove(tmp)
-
+    try:
+        logger.info(f'{type(tmp)}:{tmp}')
+        path = meme.make_meme(tmp, body, author)
+        os.remove(tmp)
+    except Exception as e:
+        logger.exception(f'Unable to create meme: {e}')
+        error = "Meme unable to be produced"
+        return render_template("meme_form.html",
+                               error=error,
+                               image_url=image_url,
+                               body=body,
+                               author=author)
     return render_template('meme.html', path=path)
 
 

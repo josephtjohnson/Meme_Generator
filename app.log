@@ -3,3 +3,376 @@ Traceback (most recent call last):
   File "C:\Users\Johns\Desktop\Udacity\Meme_Generator\app.py", line 91, in meme_post
     img_content = requests.get(img_url, stream=True).content
 NameError: name 'img_url' is not defined
+2021-10-03 14:14:52,126:ERROR:Unable to open image url : name 'img_url' is not defined
+Traceback (most recent call last):
+  File "C:\Users\Johns\Desktop\Udacity\Meme_Generator\app.py", line 91, in meme_post
+    img_content = requests.get(img_url, stream=True).content
+NameError: name 'img_url' is not defined
+2021-10-03 14:15:30,985:ERROR:Unable to open image url : name 'img_url' is not defined
+Traceback (most recent call last):
+  File "C:\Users\Johns\Desktop\Udacity\Meme_Generator\app.py", line 91, in meme_post
+    img_content = requests.get(img_url, stream=True).content
+NameError: name 'img_url' is not defined
+2021-10-03 14:16:14,392:ERROR:Unable to open image url : name 'img_url' is not defined
+Traceback (most recent call last):
+  File "C:\Users\Johns\Desktop\Udacity\Meme_Generator\app.py", line 91, in meme_post
+    img_content = requests.get(img_url, stream=True).content
+NameError: name 'img_url' is not defined
+2021-10-03 14:55:39,127:ERROR:Unable to open image url : HTTPSConnectionPool(host='www.automobiledimension.com', port=443): Max retries exceeded with url: /photos/fiat-500-2021.jpg (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1123)')))
+Traceback (most recent call last):
+  File "C:\Users\Johns\Desktop\Udacity\Meme_Generator\venv\lib\site-packages\urllib3\connectionpool.py", line 699, in urlopen
+    httplib_response = self._make_request(
+  File "C:\Users\Johns\Desktop\Udacity\Meme_Generator\venv\lib\site-packages\urllib3\connectionpool.py", line 382, in _make_request
+    self._validate_conn(conn)
+  File "C:\Users\Johns\Desktop\Udacity\Meme_Generator\venv\lib\site-packages\urllib3\connectionpool.py", line 1010, in _validate_conn
+    conn.connect()
+  File "C:\Users\Johns\Desktop\Udacity\Meme_Generator\venv\lib\site-packages\urllib3\connection.py", line 416, in connect
+    self.sock = ssl_wrap_socket(
+  File "C:\Users\Johns\Desktop\Udacity\Meme_Generator\venv\lib\site-packages\urllib3\util\ssl_.py", line 449, in ssl_wrap_socket
+    ssl_sock = _ssl_wrap_socket_impl(
+  File "C:\Users\Johns\Desktop\Udacity\Meme_Generator\venv\lib\site-packages\urllib3\util\ssl_.py", line 493, in _ssl_wrap_socket_impl
+    return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
+  File "C:\Users\Johns\AppData\Local\Programs\Python\Python39\lib\ssl.py", line 500, in wrap_socket
+    return self.sslsocket_class._create(
+  File "C:\Users\Johns\AppData\Local\Programs\Python\Python39\lib\ssl.py", line 1040, in _create
+    self.do_handshake()
+  File "C:\Users\Johns\AppData\Local\Programs\Python\Python39\lib\ssl.py", line 1309, in do_handshake
+    self._sslobj.do_handshake()
+ssl.SSLCertVerificationError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1123)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Johns\Desktop\Udacity\Meme_Generator\venv\lib\site-packages\requests\adapters.py", line 439, in send
+    resp = conn.urlopen(
+  File "C:\Users\Johns\Desktop\Udacity\Meme_Generator\venv\lib\site-packages\urllib3\connectionpool.py", line 755, in urlopen
+    retries = retries.increment(
+  File "C:\Users\Johns\Desktop\Udacity\Meme_Generator\venv\lib\site-packages\urllib3\util\retry.py", line 574, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='www.automobiledimension.com', port=443): Max retries exceeded with url: /photos/fiat-500-2021.jpg (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1123)')))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Johns\Desktop\Udacity\Meme_Generator\app.py", line 91, in meme_post
+    img_content = requests.get(image_url, stream=True).content
+  File "C:\Users\Johns\Desktop\Udacity\Meme_Generator\venv\lib\site-packages\requests\api.py", line 75, in get
+    return request('get', url, params=params, **kwargs)
+  File "C:\Users\Johns\Desktop\Udacity\Meme_Generator\venv\lib\site-packages\requests\api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "C:\Users\Johns\Desktop\Udacity\Meme_Generator\venv\lib\site-packages\requests\sessions.py", line 542, in request
+    resp = self.send(prep, **send_kwargs)
+  File "C:\Users\Johns\Desktop\Udacity\Meme_Generator\venv\lib\site-packages\requests\sessions.py", line 655, in send
+    r = adapter.send(request, **kwargs)
+  File "C:\Users\Johns\Desktop\Udacity\Meme_Generator\venv\lib\site-packages\requests\adapters.py", line 514, in send
+    raise SSLError(e, request=request)
+requests.exceptions.SSLError: HTTPSConnectionPool(host='www.automobiledimension.com', port=443): Max retries exceeded with url: /photos/fiat-500-2021.jpg (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1123)')))
+2021-10-03 15:01:28,132:ERROR:Unable to create meme: cannot identify image file './static/176564.jpg'
+Traceback (most recent call last):
+  File "C:\Users\Johns\Desktop\Udacity\Meme_Generator\app.py", line 103, in meme_post
+    path = meme.make_meme(tmp, body, author)
+  File "C:\Users\Johns\Desktop\Udacity\Meme_Generator\MemeGenerator\MemeEngine.py", line 63, in make_meme
+    img = image_resize(img_path, width)
+  File "C:\Users\Johns\Desktop\Udacity\Meme_Generator\utils.py", line 113, in image_resize
+    with Image.open(img_path) as img:
+  File "C:\Users\Johns\Desktop\Udacity\Meme_Generator\venv\lib\site-packages\PIL\Image.py", line 3023, in open
+    raise UnidentifiedImageError(
+PIL.UnidentifiedImageError: cannot identify image file './static/176564.jpg'
+2021-10-03 15:01:43,502:ERROR:Unable to create meme: cannot identify image file './static/848557.jpg'
+Traceback (most recent call last):
+  File "C:\Users\Johns\Desktop\Udacity\Meme_Generator\app.py", line 103, in meme_post
+    path = meme.make_meme(tmp, body, author)
+  File "C:\Users\Johns\Desktop\Udacity\Meme_Generator\MemeGenerator\MemeEngine.py", line 63, in make_meme
+    img = image_resize(img_path, width)
+  File "C:\Users\Johns\Desktop\Udacity\Meme_Generator\utils.py", line 113, in image_resize
+    with Image.open(img_path) as img:
+  File "C:\Users\Johns\Desktop\Udacity\Meme_Generator\venv\lib\site-packages\PIL\Image.py", line 3023, in open
+    raise UnidentifiedImageError(
+PIL.UnidentifiedImageError: cannot identify image file './static/848557.jpg'
+2021-10-03 15:01:51,854:ERROR:Unable to create meme: cannot identify image file './static/880396.jpg'
+Traceback (most recent call last):
+  File "C:\Users\Johns\Desktop\Udacity\Meme_Generator\app.py", line 103, in meme_post
+    path = meme.make_meme(tmp, body, author)
+  File "C:\Users\Johns\Desktop\Udacity\Meme_Generator\MemeGenerator\MemeEngine.py", line 63, in make_meme
+    img = image_resize(img_path, width)
+  File "C:\Users\Johns\Desktop\Udacity\Meme_Generator\utils.py", line 113, in image_resize
+    with Image.open(img_path) as img:
+  File "C:\Users\Johns\Desktop\Udacity\Meme_Generator\venv\lib\site-packages\PIL\Image.py", line 3023, in open
+    raise UnidentifiedImageError(
+PIL.UnidentifiedImageError: cannot identify image file './static/880396.jpg'
+2021-10-03 15:01:59,420:ERROR:Unable to create meme: cannot identify image file './static/663580.jpg'
+Traceback (most recent call last):
+  File "C:\Users\Johns\Desktop\Udacity\Meme_Generator\app.py", line 103, in meme_post
+    path = meme.make_meme(tmp, body, author)
+  File "C:\Users\Johns\Desktop\Udacity\Meme_Generator\MemeGenerator\MemeEngine.py", line 63, in make_meme
+    img = image_resize(img_path, width)
+  File "C:\Users\Johns\Desktop\Udacity\Meme_Generator\utils.py", line 113, in image_resize
+    with Image.open(img_path) as img:
+  File "C:\Users\Johns\Desktop\Udacity\Meme_Generator\venv\lib\site-packages\PIL\Image.py", line 3023, in open
+    raise UnidentifiedImageError(
+PIL.UnidentifiedImageError: cannot identify image file './static/663580.jpg'
+2021-10-03 15:02:34,052:ERROR:Unable to open image url : HTTPSConnectionPool(host='www.automobiledimension.com', port=443): Max retries exceeded with url: /photos/fiat-500-2021.jpg (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1123)')))
+Traceback (most recent call last):
+  File "C:\Users\Johns\Desktop\Udacity\Meme_Generator\venv\lib\site-packages\urllib3\connectionpool.py", line 699, in urlopen
+    httplib_response = self._make_request(
+  File "C:\Users\Johns\Desktop\Udacity\Meme_Generator\venv\lib\site-packages\urllib3\connectionpool.py", line 382, in _make_request
+    self._validate_conn(conn)
+  File "C:\Users\Johns\Desktop\Udacity\Meme_Generator\venv\lib\site-packages\urllib3\connectionpool.py", line 1010, in _validate_conn
+    conn.connect()
+  File "C:\Users\Johns\Desktop\Udacity\Meme_Generator\venv\lib\site-packages\urllib3\connection.py", line 416, in connect
+    self.sock = ssl_wrap_socket(
+  File "C:\Users\Johns\Desktop\Udacity\Meme_Generator\venv\lib\site-packages\urllib3\util\ssl_.py", line 449, in ssl_wrap_socket
+    ssl_sock = _ssl_wrap_socket_impl(
+  File "C:\Users\Johns\Desktop\Udacity\Meme_Generator\venv\lib\site-packages\urllib3\util\ssl_.py", line 493, in _ssl_wrap_socket_impl
+    return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
+  File "C:\Users\Johns\AppData\Local\Programs\Python\Python39\lib\ssl.py", line 500, in wrap_socket
+    return self.sslsocket_class._create(
+  File "C:\Users\Johns\AppData\Local\Programs\Python\Python39\lib\ssl.py", line 1040, in _create
+    self.do_handshake()
+  File "C:\Users\Johns\AppData\Local\Programs\Python\Python39\lib\ssl.py", line 1309, in do_handshake
+    self._sslobj.do_handshake()
+ssl.SSLCertVerificationError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1123)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Johns\Desktop\Udacity\Meme_Generator\venv\lib\site-packages\requests\adapters.py", line 439, in send
+    resp = conn.urlopen(
+  File "C:\Users\Johns\Desktop\Udacity\Meme_Generator\venv\lib\site-packages\urllib3\connectionpool.py", line 755, in urlopen
+    retries = retries.increment(
+  File "C:\Users\Johns\Desktop\Udacity\Meme_Generator\venv\lib\site-packages\urllib3\util\retry.py", line 574, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='www.automobiledimension.com', port=443): Max retries exceeded with url: /photos/fiat-500-2021.jpg (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1123)')))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Johns\Desktop\Udacity\Meme_Generator\app.py", line 91, in meme_post
+    img_content = requests.get(image_url, stream=True).content
+  File "C:\Users\Johns\Desktop\Udacity\Meme_Generator\venv\lib\site-packages\requests\api.py", line 75, in get
+    return request('get', url, params=params, **kwargs)
+  File "C:\Users\Johns\Desktop\Udacity\Meme_Generator\venv\lib\site-packages\requests\api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "C:\Users\Johns\Desktop\Udacity\Meme_Generator\venv\lib\site-packages\requests\sessions.py", line 542, in request
+    resp = self.send(prep, **send_kwargs)
+  File "C:\Users\Johns\Desktop\Udacity\Meme_Generator\venv\lib\site-packages\requests\sessions.py", line 655, in send
+    r = adapter.send(request, **kwargs)
+  File "C:\Users\Johns\Desktop\Udacity\Meme_Generator\venv\lib\site-packages\requests\adapters.py", line 514, in send
+    raise SSLError(e, request=request)
+requests.exceptions.SSLError: HTTPSConnectionPool(host='www.automobiledimension.com', port=443): Max retries exceeded with url: /photos/fiat-500-2021.jpg (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1123)')))
+2021-10-03 15:03:08,427:ERROR:Unable to create meme: cannot identify image file './static/486247.jpg'
+Traceback (most recent call last):
+  File "C:\Users\Johns\Desktop\Udacity\Meme_Generator\app.py", line 103, in meme_post
+    path = meme.make_meme(tmp, body, author)
+  File "C:\Users\Johns\Desktop\Udacity\Meme_Generator\MemeGenerator\MemeEngine.py", line 63, in make_meme
+    img = image_resize(img_path, width)
+  File "C:\Users\Johns\Desktop\Udacity\Meme_Generator\utils.py", line 113, in image_resize
+    with Image.open(img_path) as img:
+  File "C:\Users\Johns\Desktop\Udacity\Meme_Generator\venv\lib\site-packages\PIL\Image.py", line 3023, in open
+    raise UnidentifiedImageError(
+PIL.UnidentifiedImageError: cannot identify image file './static/486247.jpg'
+2021-10-04 14:36:11,474:ERROR:Unable to create meme: cannot identify image file './static/125446.jpg'
+Traceback (most recent call last):
+  File "C:\Users\Johns\Desktop\Udacity\Meme_Generator\app.py", line 103, in meme_post
+    path = meme.make_meme(tmp, body, author)
+  File "C:\Users\Johns\Desktop\Udacity\Meme_Generator\MemeGenerator\MemeEngine.py", line 63, in make_meme
+    img = image_resize(img_path, width)
+  File "C:\Users\Johns\Desktop\Udacity\Meme_Generator\utils.py", line 113, in image_resize
+    with Image.open(img_path) as img:
+  File "C:\Users\Johns\Desktop\Udacity\Meme_Generator\venv\lib\site-packages\PIL\Image.py", line 3023, in open
+    raise UnidentifiedImageError(
+PIL.UnidentifiedImageError: cannot identify image file './static/125446.jpg'
+2021-10-04 14:39:12,539:ERROR:Unable to create meme: 'Logger' object has no attribute 'INFO'
+Traceback (most recent call last):
+  File "C:\Users\Johns\Desktop\Udacity\Meme_Generator\app.py", line 103, in meme_post
+    path = meme.make_meme(tmp, body, author)
+  File "C:\Users\Johns\Desktop\Udacity\Meme_Generator\MemeGenerator\MemeEngine.py", line 63, in make_meme
+    img = image_resize(img_path, width)
+  File "C:\Users\Johns\Desktop\Udacity\Meme_Generator\utils.py", line 128, in image_resize
+    logger.INFO(f'{img_path}')
+AttributeError: 'Logger' object has no attribute 'INFO'
+2021-10-04 14:42:52,739:ERROR:Unable to create meme: cannot identify image file './static/596296.jpg'
+Traceback (most recent call last):
+  File "C:\Users\Johns\Desktop\Udacity\Meme_Generator\app.py", line 103, in meme_post
+    path = meme.make_meme(tmp, body, author)
+  File "C:\Users\Johns\Desktop\Udacity\Meme_Generator\MemeGenerator\MemeEngine.py", line 63, in make_meme
+    img = image_resize(img_path, width)
+  File "C:\Users\Johns\Desktop\Udacity\Meme_Generator\utils.py", line 129, in image_resize
+    with Image.open(img_path) as img:
+  File "C:\Users\Johns\Desktop\Udacity\Meme_Generator\venv\lib\site-packages\PIL\Image.py", line 3023, in open
+    raise UnidentifiedImageError(
+PIL.UnidentifiedImageError: cannot identify image file './static/596296.jpg'
+2021-10-04 14:47:05,507:ERROR:Unable to create meme: cannot identify image file './static/963.jpg'
+Traceback (most recent call last):
+  File "C:\Users\Johns\Desktop\Udacity\Meme_Generator\app.py", line 103, in meme_post
+    path = meme.make_meme(tmp, body, author)
+  File "C:\Users\Johns\Desktop\Udacity\Meme_Generator\MemeGenerator\MemeEngine.py", line 63, in make_meme
+    img = image_resize(img_path, width)
+  File "C:\Users\Johns\Desktop\Udacity\Meme_Generator\utils.py", line 128, in image_resize
+    with Image.open(img_path) as img:
+  File "C:\Users\Johns\Desktop\Udacity\Meme_Generator\venv\lib\site-packages\PIL\Image.py", line 3023, in open
+    raise UnidentifiedImageError(
+PIL.UnidentifiedImageError: cannot identify image file './static/963.jpg'
+2021-10-04 14:47:17,245:ERROR:Unable to create meme: cannot identify image file './static/507.jpg'
+Traceback (most recent call last):
+  File "C:\Users\Johns\Desktop\Udacity\Meme_Generator\app.py", line 103, in meme_post
+    path = meme.make_meme(tmp, body, author)
+  File "C:\Users\Johns\Desktop\Udacity\Meme_Generator\MemeGenerator\MemeEngine.py", line 63, in make_meme
+    img = image_resize(img_path, width)
+  File "C:\Users\Johns\Desktop\Udacity\Meme_Generator\utils.py", line 128, in image_resize
+    with Image.open(img_path) as img:
+  File "C:\Users\Johns\Desktop\Udacity\Meme_Generator\venv\lib\site-packages\PIL\Image.py", line 3023, in open
+    raise UnidentifiedImageError(
+PIL.UnidentifiedImageError: cannot identify image file './static/507.jpg'
+2021-10-04 15:01:53,605:ERROR:Unable to create meme: cannot identify image file './static/239.jpg'
+Traceback (most recent call last):
+  File "C:\Users\Johns\Desktop\Udacity\Meme_Generator\app.py", line 103, in meme_post
+    path = meme.make_meme(tmp, body, author)
+  File "C:\Users\Johns\Desktop\Udacity\Meme_Generator\MemeGenerator\MemeEngine.py", line 63, in make_meme
+    img = image_resize(img_path, width)
+  File "C:\Users\Johns\Desktop\Udacity\Meme_Generator\utils.py", line 128, in image_resize
+    with Image.open(img_path) as img:
+  File "C:\Users\Johns\Desktop\Udacity\Meme_Generator\venv\lib\site-packages\PIL\Image.py", line 3023, in open
+    raise UnidentifiedImageError(
+PIL.UnidentifiedImageError: cannot identify image file './static/239.jpg'
+2021-10-04 15:02:41,386:ERROR:Unable to create meme: cannot identify image file './static/627.jpg'
+Traceback (most recent call last):
+  File "C:\Users\Johns\Desktop\Udacity\Meme_Generator\app.py", line 103, in meme_post
+    path = meme.make_meme(tmp, body, author)
+  File "C:\Users\Johns\Desktop\Udacity\Meme_Generator\MemeGenerator\MemeEngine.py", line 63, in make_meme
+    img = image_resize(img_path, width)
+  File "C:\Users\Johns\Desktop\Udacity\Meme_Generator\utils.py", line 128, in image_resize
+    with Image.open(img_path) as img:
+  File "C:\Users\Johns\Desktop\Udacity\Meme_Generator\venv\lib\site-packages\PIL\Image.py", line 3023, in open
+    raise UnidentifiedImageError(
+PIL.UnidentifiedImageError: cannot identify image file './static/627.jpg'
+2021-10-04 15:03:36,557:ERROR:Unable to create meme: cannot identify image file './static/959.jpg'
+Traceback (most recent call last):
+  File "C:\Users\Johns\Desktop\Udacity\Meme_Generator\app.py", line 103, in meme_post
+    path = meme.make_meme(tmp, body, author)
+  File "C:\Users\Johns\Desktop\Udacity\Meme_Generator\MemeGenerator\MemeEngine.py", line 63, in make_meme
+    img = image_resize(img_path, width)
+  File "C:\Users\Johns\Desktop\Udacity\Meme_Generator\utils.py", line 128, in image_resize
+    with Image.open(img_path) as img:
+  File "C:\Users\Johns\Desktop\Udacity\Meme_Generator\venv\lib\site-packages\PIL\Image.py", line 3023, in open
+    raise UnidentifiedImageError(
+PIL.UnidentifiedImageError: cannot identify image file './static/959.jpg'
+2021-10-04 15:06:12,072:ERROR:Unable to create meme: seek of closed file
+Traceback (most recent call last):
+  File "C:\Users\Johns\Desktop\Udacity\Meme_Generator\app.py", line 103, in meme_post
+    path = meme.make_meme(tmp, body, author)
+  File "C:\Users\Johns\Desktop\Udacity\Meme_Generator\MemeGenerator\MemeEngine.py", line 63, in make_meme
+    img = image_resize(img_path, width)
+  File "C:\Users\Johns\Desktop\Udacity\Meme_Generator\utils.py", line 128, in image_resize
+    with Image.open(img_path) as img:
+  File "C:\Users\Johns\Desktop\Udacity\Meme_Generator\venv\lib\site-packages\PIL\Image.py", line 2972, in open
+    fp.seek(0)
+ValueError: seek of closed file
+2021-10-04 15:08:42,710:ERROR:Unable to create meme: cannot identify image file './static/643.jpg'
+Traceback (most recent call last):
+  File "C:\Users\Johns\Desktop\Udacity\Meme_Generator\app.py", line 104, in meme_post
+    path = meme.make_meme(tmp, body, author)
+  File "C:\Users\Johns\Desktop\Udacity\Meme_Generator\MemeGenerator\MemeEngine.py", line 63, in make_meme
+    img = image_resize(img_path, width)
+  File "C:\Users\Johns\Desktop\Udacity\Meme_Generator\utils.py", line 128, in image_resize
+    with Image.open(img_path) as img:
+  File "C:\Users\Johns\Desktop\Udacity\Meme_Generator\venv\lib\site-packages\PIL\Image.py", line 3023, in open
+    raise UnidentifiedImageError(
+PIL.UnidentifiedImageError: cannot identify image file './static/643.jpg'
+2021-10-04 15:12:22,201:ERROR:Unable to create meme: cannot identify image file './static/844.jpg'
+Traceback (most recent call last):
+  File "C:\Users\Johns\Desktop\Udacity\Meme_Generator\app.py", line 104, in meme_post
+    path = meme.make_meme(tmp, body, author)
+  File "C:\Users\Johns\Desktop\Udacity\Meme_Generator\MemeGenerator\MemeEngine.py", line 63, in make_meme
+    img = image_resize(img_path, width)
+  File "C:\Users\Johns\Desktop\Udacity\Meme_Generator\utils.py", line 128, in image_resize
+    with Image.open(img_path) as img:
+  File "C:\Users\Johns\Desktop\Udacity\Meme_Generator\venv\lib\site-packages\PIL\Image.py", line 3023, in open
+    raise UnidentifiedImageError(
+PIL.UnidentifiedImageError: cannot identify image file './static/844.jpg'
+2021-10-04 15:12:28,607:ERROR:Unable to open image url : HTTPSConnectionPool(host='www.automobiledimension.com', port=443): Max retries exceeded with url: /photos/fiat-500-2021.jpg (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1123)')))
+Traceback (most recent call last):
+  File "C:\Users\Johns\Desktop\Udacity\Meme_Generator\venv\lib\site-packages\urllib3\connectionpool.py", line 699, in urlopen
+    httplib_response = self._make_request(
+  File "C:\Users\Johns\Desktop\Udacity\Meme_Generator\venv\lib\site-packages\urllib3\connectionpool.py", line 382, in _make_request
+    self._validate_conn(conn)
+  File "C:\Users\Johns\Desktop\Udacity\Meme_Generator\venv\lib\site-packages\urllib3\connectionpool.py", line 1010, in _validate_conn
+    conn.connect()
+  File "C:\Users\Johns\Desktop\Udacity\Meme_Generator\venv\lib\site-packages\urllib3\connection.py", line 416, in connect
+    self.sock = ssl_wrap_socket(
+  File "C:\Users\Johns\Desktop\Udacity\Meme_Generator\venv\lib\site-packages\urllib3\util\ssl_.py", line 449, in ssl_wrap_socket
+    ssl_sock = _ssl_wrap_socket_impl(
+  File "C:\Users\Johns\Desktop\Udacity\Meme_Generator\venv\lib\site-packages\urllib3\util\ssl_.py", line 493, in _ssl_wrap_socket_impl
+    return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
+  File "C:\Users\Johns\AppData\Local\Programs\Python\Python39\lib\ssl.py", line 500, in wrap_socket
+    return self.sslsocket_class._create(
+  File "C:\Users\Johns\AppData\Local\Programs\Python\Python39\lib\ssl.py", line 1040, in _create
+    self.do_handshake()
+  File "C:\Users\Johns\AppData\Local\Programs\Python\Python39\lib\ssl.py", line 1309, in do_handshake
+    self._sslobj.do_handshake()
+ssl.SSLCertVerificationError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1123)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Johns\Desktop\Udacity\Meme_Generator\venv\lib\site-packages\requests\adapters.py", line 439, in send
+    resp = conn.urlopen(
+  File "C:\Users\Johns\Desktop\Udacity\Meme_Generator\venv\lib\site-packages\urllib3\connectionpool.py", line 755, in urlopen
+    retries = retries.increment(
+  File "C:\Users\Johns\Desktop\Udacity\Meme_Generator\venv\lib\site-packages\urllib3\util\retry.py", line 574, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='www.automobiledimension.com', port=443): Max retries exceeded with url: /photos/fiat-500-2021.jpg (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1123)')))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Johns\Desktop\Udacity\Meme_Generator\app.py", line 91, in meme_post
+    img_content = requests.get(image_url, stream=True).content
+  File "C:\Users\Johns\Desktop\Udacity\Meme_Generator\venv\lib\site-packages\requests\api.py", line 75, in get
+    return request('get', url, params=params, **kwargs)
+  File "C:\Users\Johns\Desktop\Udacity\Meme_Generator\venv\lib\site-packages\requests\api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "C:\Users\Johns\Desktop\Udacity\Meme_Generator\venv\lib\site-packages\requests\sessions.py", line 542, in request
+    resp = self.send(prep, **send_kwargs)
+  File "C:\Users\Johns\Desktop\Udacity\Meme_Generator\venv\lib\site-packages\requests\sessions.py", line 655, in send
+    r = adapter.send(request, **kwargs)
+  File "C:\Users\Johns\Desktop\Udacity\Meme_Generator\venv\lib\site-packages\requests\adapters.py", line 514, in send
+    raise SSLError(e, request=request)
+requests.exceptions.SSLError: HTTPSConnectionPool(host='www.automobiledimension.com', port=443): Max retries exceeded with url: /photos/fiat-500-2021.jpg (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1123)')))
+2021-10-04 15:12:38,189:ERROR:Unable to create meme: cannot identify image file './static/228.jpg'
+Traceback (most recent call last):
+  File "C:\Users\Johns\Desktop\Udacity\Meme_Generator\app.py", line 104, in meme_post
+    path = meme.make_meme(tmp, body, author)
+  File "C:\Users\Johns\Desktop\Udacity\Meme_Generator\MemeGenerator\MemeEngine.py", line 63, in make_meme
+    img = image_resize(img_path, width)
+  File "C:\Users\Johns\Desktop\Udacity\Meme_Generator\utils.py", line 128, in image_resize
+    with Image.open(img_path) as img:
+  File "C:\Users\Johns\Desktop\Udacity\Meme_Generator\venv\lib\site-packages\PIL\Image.py", line 3023, in open
+    raise UnidentifiedImageError(
+PIL.UnidentifiedImageError: cannot identify image file './static/228.jpg'
+2021-10-04 15:12:45,552:ERROR:Unable to open image url : No connection adapters were found for 'C:\\Users\\Johns\\Desktop\\Udacity\\Meme_Generator\\_data\\photos\\book\\pexels-andrea-piacquadio-3887493'
+Traceback (most recent call last):
+  File "C:\Users\Johns\Desktop\Udacity\Meme_Generator\app.py", line 91, in meme_post
+    img_content = requests.get(image_url, stream=True).content
+  File "C:\Users\Johns\Desktop\Udacity\Meme_Generator\venv\lib\site-packages\requests\api.py", line 75, in get
+    return request('get', url, params=params, **kwargs)
+  File "C:\Users\Johns\Desktop\Udacity\Meme_Generator\venv\lib\site-packages\requests\api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "C:\Users\Johns\Desktop\Udacity\Meme_Generator\venv\lib\site-packages\requests\sessions.py", line 542, in request
+    resp = self.send(prep, **send_kwargs)
+  File "C:\Users\Johns\Desktop\Udacity\Meme_Generator\venv\lib\site-packages\requests\sessions.py", line 649, in send
+    adapter = self.get_adapter(url=request.url)
+  File "C:\Users\Johns\Desktop\Udacity\Meme_Generator\venv\lib\site-packages\requests\sessions.py", line 742, in get_adapter
+    raise InvalidSchema("No connection adapters were found for {!r}".format(url))
+requests.exceptions.InvalidSchema: No connection adapters were found for 'C:\\Users\\Johns\\Desktop\\Udacity\\Meme_Generator\\_data\\photos\\book\\pexels-andrea-piacquadio-3887493'
+2021-10-04 15:20:54,617:ERROR:Unable to create meme: cannot identify image file './static/296.jpg'
+Traceback (most recent call last):
+  File "C:\Users\Johns\Desktop\Udacity\Meme_Generator\app.py", line 104, in meme_post
+    path = meme.make_meme(tmp, body, author)
+  File "C:\Users\Johns\Desktop\Udacity\Meme_Generator\MemeGenerator\MemeEngine.py", line 63, in make_meme
+    img = image_resize(img_path, width)
+  File "C:\Users\Johns\Desktop\Udacity\Meme_Generator\utils.py", line 128, in image_resize
+    with Image.open(img_path) as img:
+  File "C:\Users\Johns\Desktop\Udacity\Meme_Generator\venv\lib\site-packages\PIL\Image.py", line 3023, in open
+    raise UnidentifiedImageError(
+PIL.UnidentifiedImageError: cannot identify image file './static/296.jpg'

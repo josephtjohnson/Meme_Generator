@@ -1,6 +1,5 @@
 import os
 import random
-import utils
 from utils import image_resize, text_draw
 from typing import List
 from PIL import Image, ImageFont, ImageDraw
@@ -67,9 +66,7 @@ class MemeEngine:
         fill = (0, 0, 0)
 
         draw = ImageDraw.Draw(img)
-
-        add_text = text_draw(draw, text, author, fill, font)
-
+        text_draw(draw, text, author, fill, font)
         save_dir = f'{self.output}/{random.randint(0,10000)}.{ext}'
         img.save(save_dir)
         return save_dir

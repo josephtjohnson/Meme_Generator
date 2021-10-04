@@ -1,0 +1,89 @@
+2021-10-04 14:47:05,192:INFO:./static/963.jpg
+2021-10-04 14:47:09,385:INFO:./_data/photos/dog/xander_4.jpg
+2021-10-04 14:47:09,393:INFO:<PIL.Image.Image image mode=RGB size=500x500 at 0x1FDE9C59520>
+2021-10-04 14:47:09,393:INFO:<PIL.ImageDraw.ImageDraw object at 0x000001FDE9C59700>
+2021-10-04 14:47:09,401:INFO:<PIL.ImageDraw.ImageDraw object at 0x000001FDE9C59700>
+2021-10-04 14:47:17,056:INFO:./static/507.jpg
+2021-10-04 14:48:41,964:INFO:./_data/photos/dog/xander_3.jpg
+2021-10-04 14:48:41,995:INFO:<PIL.Image.Image image mode=RGB size=500x500 at 0x296F573AA00>
+2021-10-04 14:48:41,995:INFO:<PIL.ImageDraw.ImageDraw object at 0x00000296F573AA90>
+2021-10-04 14:48:41,995:INFO:<PIL.ImageDraw.ImageDraw object at 0x00000296F573AA90>
+2021-10-04 14:51:02,259:INFO:./_data/photos/dog/xander_4.jpg
+2021-10-04 14:51:02,309:INFO:<PIL.Image.Image image mode=RGB size=500x500 at 0x1FF65713E50>
+2021-10-04 14:51:02,313:INFO:<PIL.ImageDraw.ImageDraw object at 0x000001FF65713F10>
+2021-10-04 14:51:02,317:INFO:<PIL.ImageDraw.ImageDraw object at 0x000001FF65713F10>
+2021-10-04 14:51:39,004:INFO:./_data/photos/dog/xander_4.jpg
+2021-10-04 14:51:39,051:INFO:<PIL.Image.Image image mode=RGB size=500x500 at 0x29954184E50>
+2021-10-04 14:51:39,051:INFO:<PIL.ImageDraw.ImageDraw object at 0x0000029954184F10>
+2021-10-04 14:51:39,051:INFO:<PIL.ImageDraw.ImageDraw object at 0x0000029954184F10>
+2021-10-04 14:53:13,308:INFO:./_data/photos/dog/xander_3.jpg
+2021-10-04 14:53:13,355:INFO:<PIL.Image.Image image mode=RGB size=500x500 at 0x1E91A4E2E50>
+2021-10-04 14:53:13,355:INFO:<PIL.ImageDraw.ImageDraw object at 0x000001E91A4E2F10>
+2021-10-04 14:53:13,355:INFO:<PIL.ImageDraw.ImageDraw object at 0x000001E91A4E2F10>
+2021-10-04 14:57:44,531:INFO:./_data/photos/dog/xander_1.jpg
+2021-10-04 14:57:44,558:INFO:<PIL.Image.Image image mode=RGB size=500x500 at 0x19A90A309D0>
+2021-10-04 14:57:44,558:INFO:<PIL.ImageDraw.ImageDraw object at 0x0000019A90A30AC0>
+2021-10-04 14:57:44,582:INFO:<PIL.ImageDraw.ImageDraw object at 0x0000019A90A30AC0>
+2021-10-04 14:58:35,373:INFO:./_data/photos/dog/xander_3.jpg
+2021-10-04 14:58:35,426:INFO:<PIL.Image.Image image mode=RGB size=500x500 at 0x1F9D6BBAA00>
+2021-10-04 14:58:35,426:INFO:<PIL.ImageDraw.ImageDraw object at 0x000001F9D6BBAA90>
+2021-10-04 14:58:35,426:INFO:<PIL.ImageDraw.ImageDraw object at 0x000001F9D6BBAA90>
+2021-10-04 14:59:05,504:INFO:./_data/photos/dog/xander_3.jpg
+2021-10-04 14:59:05,542:INFO:<PIL.Image.Image image mode=RGB size=500x500 at 0x1C9B33EAA00>
+2021-10-04 14:59:05,542:INFO:<PIL.ImageDraw.ImageDraw object at 0x000001C9B33EAA90>
+2021-10-04 14:59:05,542:INFO:<PIL.ImageDraw.ImageDraw object at 0x000001C9B33EAA90>
+2021-10-04 15:00:38,263:INFO:./_data/photos/dog/xander_4.jpg
+2021-10-04 15:00:38,333:INFO:<PIL.Image.Image image mode=RGB size=500x500 at 0x205BA904880>
+2021-10-04 15:00:38,333:INFO:<PIL.ImageDraw.ImageDraw object at 0x00000205BA904AC0>
+2021-10-04 15:00:38,348:INFO:<PIL.ImageDraw.ImageDraw object at 0x00000205BA904AC0>
+2021-10-04 15:01:08,364:INFO:./_data/photos/dog/xander_4.jpg
+2021-10-04 15:01:08,395:INFO:<PIL.Image.Image image mode=RGB size=500x500 at 0x14AA3254970>
+2021-10-04 15:01:08,395:INFO:<PIL.ImageDraw.ImageDraw object at 0x0000014AA3254A00>
+2021-10-04 15:01:08,395:INFO:<PIL.ImageDraw.ImageDraw object at 0x0000014AA3254A00>
+2021-10-04 15:01:45,591:INFO:./_data/photos/dog/xander_4.jpg
+2021-10-04 15:01:45,624:INFO:<PIL.Image.Image image mode=RGB size=500x500 at 0x217BEA34370>
+2021-10-04 15:01:45,624:INFO:<PIL.ImageDraw.ImageDraw object at 0x00000217BEA343A0>
+2021-10-04 15:01:45,641:INFO:<PIL.ImageDraw.ImageDraw object at 0x00000217BEA343A0>
+2021-10-04 15:01:53,304:INFO:./static/239.jpg
+2021-10-04 15:02:33,681:INFO:./_data/photos/dog/xander_3.jpg
+2021-10-04 15:02:33,705:INFO:<PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500 at 0x2487E6E4430>
+2021-10-04 15:02:33,713:INFO:<PIL.Image.Image image mode=RGB size=500x500 at 0x2487E6E4370>
+2021-10-04 15:02:33,713:INFO:<PIL.ImageDraw.ImageDraw object at 0x000002487E6E43A0>
+2021-10-04 15:02:33,721:INFO:<PIL.ImageDraw.ImageDraw object at 0x000002487E6E43A0>
+2021-10-04 15:02:41,092:INFO:./static/627.jpg
+2021-10-04 15:03:29,844:INFO:./_data/photos/dog/xander_3.jpg
+2021-10-04 15:03:29,844:INFO:./_data/photos/dog/xander_3.jpg
+2021-10-04 15:03:29,868:INFO:<PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500 at 0x192891F4430>
+2021-10-04 15:03:29,876:INFO:<PIL.Image.Image image mode=RGB size=500x500 at 0x192891F4370>
+2021-10-04 15:03:29,876:INFO:<PIL.ImageDraw.ImageDraw object at 0x00000192891F43A0>
+2021-10-04 15:03:29,876:INFO:<PIL.ImageDraw.ImageDraw object at 0x00000192891F43A0>
+2021-10-04 15:03:36,262:INFO:./static/959.jpg
+2021-10-04 15:03:36,262:INFO:./static/959.jpg
+2021-10-04 15:06:04,486:INFO:./_data/photos/dog/xander_4.jpg
+2021-10-04 15:06:04,486:INFO:./_data/photos/dog/xander_4.jpg
+2021-10-04 15:06:04,509:INFO:<PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500 at 0x231C1602490>
+2021-10-04 15:06:04,517:INFO:<PIL.Image.Image image mode=RGB size=500x500 at 0x231C16023D0>
+2021-10-04 15:06:04,517:INFO:<PIL.ImageDraw.ImageDraw object at 0x00000231C1602400>
+2021-10-04 15:06:04,517:INFO:<PIL.ImageDraw.ImageDraw object at 0x00000231C1602400>
+2021-10-04 15:06:12,072:INFO:<_io.BufferedWriter name='./static/364.jpg'>
+2021-10-04 15:06:12,072:INFO:<_io.BufferedWriter name='./static/364.jpg'>
+2021-10-04 15:08:33,612:INFO:./_data/photos/dog/xander_1.jpg
+2021-10-04 15:08:33,612:INFO:./_data/photos/dog/xander_1.jpg
+2021-10-04 15:08:33,661:INFO:<PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500 at 0x26317752520>
+2021-10-04 15:08:33,669:INFO:<PIL.Image.Image image mode=RGB size=500x500 at 0x26317752460>
+2021-10-04 15:08:33,669:INFO:<PIL.ImageDraw.ImageDraw object at 0x0000026317752490>
+2021-10-04 15:08:33,677:INFO:<PIL.ImageDraw.ImageDraw object at 0x0000026317752490>
+2021-10-04 15:08:42,416:INFO:./static/643.jpg
+2021-10-04 15:08:42,416:INFO:./static/643.jpg
+2021-10-04 15:12:22,121:INFO:./static/844.jpg
+2021-10-04 15:12:22,121:INFO:./static/844.jpg
+2021-10-04 15:12:37,513:INFO:./static/228.jpg
+2021-10-04 15:12:37,513:INFO:./static/228.jpg
+2021-10-04 15:12:51,503:INFO:./static/89.jpg
+2021-10-04 15:12:51,503:INFO:./static/89.jpg
+2021-10-04 15:12:51,535:INFO:<PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=1000x667 at 0x263188D44C0>
+2021-10-04 15:12:51,586:INFO:<PIL.Image.Image image mode=RGB size=500x333 at 0x263188D4FD0>
+2021-10-04 15:12:51,590:INFO:<PIL.ImageDraw.ImageDraw object at 0x00000263188D4C70>
+2021-10-04 15:12:51,602:INFO:<PIL.ImageDraw.ImageDraw object at 0x00000263188D4C70>
+2021-10-04 15:20:53,927:INFO:./static/296.jpg
+2021-10-04 15:20:53,935:INFO:./static/296.jpg
