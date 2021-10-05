@@ -61,12 +61,13 @@ class MemeEngine:
                 width of image in pixels (default = 500)
         """
         img = image_resize(img_path, width)
+        width, height = img.size
         ext = img_path.split('.')[-1]
         font = ImageFont.truetype('fonts/Courgette-Regular.ttf', 25)
-        fill = (0, 0, 0)
+        fill = (255, 255, 255)
 
         draw = ImageDraw.Draw(img)
-        text_draw(draw, text, author, fill, font)
+        text_draw(draw, text, author, fill, font, int(width), int(height))
         save_dir = f'{self.output}/{random.randint(0,10000)}.{ext}'
         img.save(save_dir)
         return save_dir

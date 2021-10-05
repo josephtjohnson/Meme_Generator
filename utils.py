@@ -119,22 +119,20 @@ def image_resize(img_path, width=500):
     width : int
     width of image in pixels (default = 500)
     """
-    logger.info(f'{img_path}')
+
     MAX_WIDTH: int = 500
 
     assert width is not None, 'Width is zero'
     assert width >= MAX_WIDTH, 'Width > 500'
-    logger.info(f'{img_path}')
+    img_path = img_path
     with Image.open(img_path) as img:
-        logger.info(f'{img}')
         ratio = width/float(img.size[0])
         height = int(ratio*img.size[1])
         img = img.resize((width, height))
-        logger.info(f'{img}')
         return img
 
 
-def text_draw(draw, text, author, fill, font):
+def text_draw(draw, text, author, fill, font, width, height):
     """
     Draw text in random location on image.
     Paramters
@@ -149,16 +147,22 @@ def text_draw(draw, text, author, fill, font):
         text fill
     font : font object
         text font
+    width : int
+        image width
+    height : int
+        image height
     """
 
-    draw = draw
-    logger.info(f'{draw}')
-    x = random.randint(15, 55)
-    y = random.randint(20, 70)
+    x_max = int(0.6*width)
+    y_max = int(0.8*height)
+    x = random.randint(15, x_max)
+    y = random.randint(20, y_max)
+    wrap_limit = (width - x)*0.08
+    text = textwrap.fill(text, wrap_limit)
 
-    text = textwrap.fill(text, 30)
+    if len(text+author) > (height-y)*0.5:
+        draw.text((20, 20), text=text+'\n'+'-'+author, fill=fill, font=font)
+    else:
+        draw.text((x, y), text=text+'\n'+'-'+author, fill=fill, font=font)
 
-    draw.text((x, y), text=text, fill=fill, font=font)
-    draw.text((x, y+20), text='-'+author, fill=fill, font=font)
-    logger.info(f'{draw}')
     return draw

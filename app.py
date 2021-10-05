@@ -100,12 +100,12 @@ def meme_post():
                                body=body,
                                author=author)
     try:
-        logger.info(f'{type(tmp)}:{tmp}')
         path = meme.make_meme(tmp, body, author)
         os.remove(tmp)
     except Exception as e:
         logger.exception(f'Unable to create meme: {e}')
-        error = "Meme unable to be produced"
+        error = "Meme unable to be produced. Ensure image file and text \
+        are correct."
         return render_template("meme_form.html",
                                error=error,
                                image_url=image_url,
